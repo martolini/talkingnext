@@ -2,6 +2,7 @@
 	padding-top: 25px;
 	padding-bottom: 35px;
 	background-color: #3498db;
+	height: 100vh;
 }
 
 #ama h1 {
@@ -39,8 +40,11 @@
 }
 
 #questions {
-	padding: 40px 0;
+	padding-top: 40px;
+	padding-bottom: 40px;
 	position: relative;
+	overflow-y: scroll;
+	height: 100vh;
 }
 
 #questions h1 {
