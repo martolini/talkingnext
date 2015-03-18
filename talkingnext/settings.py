@@ -83,4 +83,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-STATIC_ROOT = 'static'
+STATIC_ROOT = 'staticfiles'
