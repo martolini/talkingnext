@@ -1,0 +1,83 @@
+#ama {
+	padding-top: 25px;
+	padding-bottom: 35px;
+	background-color: #3498db;
+}
+
+#ama h1 {
+	padding-top: 50px;
+	margin: 0 0 25px;
+	color: white;
+	line-height: 5.1rem;
+	font-size: 3.5rem;
+	text-align: left;
+	opacity: .9;
+}
+
+#ama h5 {
+	margin: 0 0 40px;
+	color: white;
+	text-align: left;
+	font-size: 16px;
+	font-family: 'Roboto';
+	font-weight: 400;
+	opacity: .75;
+}
+
+#ama .btn-cta {
+	background: #124466;
+	border: 1px solid white;
+	color: white;
+}
+
+#ama img {
+	border: 2px solid white;
+}
+
+#video-out {
+	padding-top: 25px;
+}
+
+#questions {
+	padding: 40px 0;
+	position: relative;
+}
+
+#questions h1 {
+	text-align: center;
+	color: #888;
+	margin: 0;
+}
+
+.question-list {
+	list-style: none;
+}
+
+.question-list li {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px dotted #B3A9A9;
+}
+
+.question-list {
+	color: #777;
+}
+
+.question-input {
+	resize: none;
+}
+
+.question-list i {
+	color: #3498db;
+	font-size: 24px;
+	margin-bottom: 5px;
+}
+
+.vote-up {
+	font-weight: 600;
+	font-size: 2rem;
+}
+
+.fa-ban {
+	color: #777 !important;
+}
