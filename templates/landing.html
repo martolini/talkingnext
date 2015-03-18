@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/landing.css' %}">
+{% endblock %}
+
+{% block body %}
+	<div id="main-content">
+		<div id="home">
+			<div class="row background-solid">
+				<div class="row top-row">
+					<h1>Fuel your startup by <strong>asking</strong> proven entrepreneurs</h1>
+					<p class="subtext text-center">
+						Talking next is Dirtybit with their application FunRun.
+					</p>
+				</div>
+				<div class="row">
+					<div class="col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-2 col-lg-2 col-lg-offset-3 col-xs-6" style="padding-top: 25px">
+						<img src="{% static 'img/featuring/funrun.png' %}" class="img-responsive pull-right" alt="Nicolaj Dirtybit Funrun">
+					</div>
+					<div class="col-sm-7 col-xs-12">
+						<div class="row">
+							<h5 class="event-title"><span>Topic is</span> Creating a viral application</h5>
+						</div>
+						<hr style="width: 10%; margin: 0; padding: 0;" class="pull-left">
+						<div class="row">
+							<h5 style="width: 60%" class="">Nicolaj Petersen, founder of <strong>FunRun</strong> got 40M downloads. Now he wants you to succeed as well. Line up to get your questions answered!</h5>
+						</div>
+						<div class="row">
+							<a href="#" class="btn btn-cta btn-lg">Join the AMA</a>
+							<a href="#" class="btn btn-cta-second">Preview</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="feedback">
+			<div class="background-solid">
+				<h1>Who should be <strong>talking next</strong>?</h1>
+				<div class="container-colored-line">
+					<hr class="colored-line">
+					<div class="add-colored-line"></div>
+				</div>
+				<form action="" class="input-wrapper">
+					<input type="text" class="input-startup" name="startup" placeholder="Airbnb">
+					<input type="submit" class="send-startup" value="Find them!">
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

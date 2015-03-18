@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<div class="row" id="ama">
+	<div class="col-md-6 col-md-offset-2">
+		<iframe id="amaframe" src="//www.ustream.tv/embed/20200651?wmode=direct&autoplay=1&showtitle=false" style="border: 0 none transparent;"  webkitallowfullscreen allowfullscreen frameborder="no" width="640" height="379"></iframe><br /><a href="http://www.ustream.tv/" style="padding: 2px 0px 4px; width: 400px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" target="_blank">Live streaming video by Ustream</a>
+	</div>
+	<div class="col-md-4">
+		<button id="fiskekake">Fisk</button>
+		asdasd
+	</div>
+</row>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/ustream.js' %}"></script>
+<script>
+	$(function() {
+		var viewer = UstreamEmbed('amaframe');
+
+		var onEmbedEvent = function(event, data) {
+			if (event == 'live')
+				viewer.callMethod('play');
+		}
+
+		$('#fiskekake').click(function(e) {
+			console.log('clicked');
+			viewer.callMethod('pause');
+			e.preventDefault();
+		});
+
+		viewer.addListener('ready', onEmbedEvent);
+		viewer.addListener('quality', onEmbedEvent);
+		viewer.addListener('live', onEmbedEvent);
+		viewer.addListener('offline', onEmbedEvent);
+		viewer.addListener('playing', onEmbedEvent);
+		viewer.addListener('finished', onEmbedEvent);
+		viewer.addListener('size', onEmbedEvent);
+		viewer.addListener('content', onEmbedEvent);
+	});
+</script>
+{% endblock %}

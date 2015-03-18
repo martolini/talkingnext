@@ -1,0 +1,34 @@
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Engage with the best startups">
+	<meta name="keywords" content="Startup, startups, connect startup, learn startup, engage startup">
+	<meta name="author" content="myman">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  
+	<!-- Add title to your website -->
+	<title>Talking next - is fun run</title>
+
+	<!-- Connect the html files to css files -->
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+		 
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="img/favicon.png">
+
+	<!-- Linking to online google font Roboto -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	{% block head %}
+	{% endblock %} 
+</head>
+<body>
+	{% block body %}
+	{% endblock %}
+
+	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	{% block scripts %}
+	{% endblock %}
+</body>
