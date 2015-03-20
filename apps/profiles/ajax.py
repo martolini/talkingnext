@@ -2,7 +2,9 @@ from django_ajax.decorators import ajax
 from .models import Profile
 from django.contrib import auth
 from .forms import ProfileCreationForm
+from django.views.decorators.csrf import ensure_csrf_cookie
 
+@ensure_csrf_cookie
 @ajax
 def create_user_view(request):
 	if request.user.is_authenticated():
@@ -18,7 +20,7 @@ def create_user_view(request):
 		print form.errors
 	return {'authenticated': False}
 
-
+@ensure_csrf_cookie
 @ajax
 def authenticate_user(request):
 	if request.user.is_authenticated():

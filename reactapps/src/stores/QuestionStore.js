@@ -31,11 +31,6 @@ var QuestionStore = Reflux.createStore({
 	},
 
 	onGetInitialData: function() {
-		$.ajaxSetup({
-			beforeSend: function(xhr) {
-				xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
-			}
-		});
 		var self = this;
 		$.get('/ajax/questions/', function(data) {
 			if (data.content.displayName)

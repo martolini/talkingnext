@@ -3,7 +3,9 @@ from django_ajax.decorators import ajax
 from django.core import serializers
 from .models import Host, Question
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import ensure_csrf_cookie
 
+@ensure_csrf_cookie
 @ajax
 def questions_view(request):
 	if request.POST:
