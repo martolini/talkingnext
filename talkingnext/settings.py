@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'apps.ama',
+    'apps.profiles',
+
+    'django_ajax',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -84,3 +87,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 STATIC_ROOT = 'staticfiles'
+
+AUTH_USER_MODEL = 'profiles.Profile'

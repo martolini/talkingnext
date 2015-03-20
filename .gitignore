@@ -1,3 +1,6 @@
 venv
 db.sqlite3
 *.pyc
+reactapps/node_modules
+db.sqlite3
+*.DS_Store
