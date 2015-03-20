@@ -10,7 +10,6 @@ def create_user_view(request):
 	form = ProfileCreationForm(request.POST)
 	if form.is_valid():
 		p = form.save()
-		print 'valid'
 		user = auth.authenticate(username=request.POST.get('email'), password=request.POST.get('password'))
 		if user is not None:
 			auth.login(request, user)

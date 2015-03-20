@@ -8,21 +8,21 @@ var UserStore = Reflux.createStore({
 	listenables: [UserActions],
 
 	requestReturn: function(data) {
-		_authenticated = data.authenticated;
-		_displayName = data.displayName;
+		_authenticated = data.content.authenticated;
+		_displayName = data.content.displayName;
 		this.trigger(_authenticated);
 	},
 
 	onCreateUser: function(data) {
-		ajaxPost('/ajax/create_user/', data, this.requestReturn);
+		$.post('/ajax/create_user/', data, this.requestReturn);
 	},
 
 	onAuthenticate: function() {
-		ajaxGet('/ajax/authenticate_user/', this.requestReturn);
+		$.get('/ajax/authenticate_user/', this.requestReturn);
 	},
 
 	onAuthenticateUser: function(data) {
-		ajaxPost('/ajax/authenticate_user/', data, this.requestReturn);
+		$.post('/ajax/authenticate_user/', data, this.requestReturn);
 	},
 
 	onDidAuthenticate: function(displayName) {

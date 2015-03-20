@@ -21,7 +21,7 @@ var QuestionStore = Reflux.createStore({
 	listenables: QuestionActions,
 
 	onPostQuestion: function(text) {
-		ajaxPost('/ajax/questions/', {'text': text, 'host_id': _hostId});
+		$.post('/ajax/questions/', {'text': text, 'host_id': _hostId});
 	},
 
 	onNewQuestion: function(question) {
@@ -31,16 +31,20 @@ var QuestionStore = Reflux.createStore({
 	},
 
 	onGetInitialData: function() {
+		$.ajaxSetup({
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
+			}
+		});
 		var self = this;
-		ajaxGet('/ajax/questions/', function(data) {
-			if (data.displayName)
-				UserActions.didAuthenticate(data.displayName);
-			_hostId = data.host_id;
+		$.get('/ajax/questions/', function(data) {
+			if (data.content.displayName)
+				UserActions.didAuthenticate(data.content.displayName);
+			_hostId = data.content.host_id;
 			var questions = {};
-			data.questions.forEach(function(rawQuestion) {
+			data.content.questions.forEach(function(rawQuestion) {
 				question = QuestionUtils.convertRawQuestion(rawQuestion);
 				questions[question.id] = question;
-				console.log(question.createdAt);
 			});
 			_questions = questions
 			self.trigger(_getQuestionList());
