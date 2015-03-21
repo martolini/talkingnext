@@ -86,7 +86,15 @@
 	background: #f1f1f1;
 }
 
-#feedback h1 {
+#subscribe {
+	background: white;
+}
+
+#subscribe .background-solid {
+	padding: 35px 0;
+}
+
+#feedback h1, #subscribe h1 {
 	text-align: center;
 	color: #888;
 	opacity: 0.9;
@@ -110,7 +118,7 @@
 	padding-right: 25px;
 }
 
-.input-startup {
+.input-startup, .input-email {
 	width: 70%;
 	padding-left: 15px;
 	padding-right: 64px;
@@ -125,7 +133,12 @@
 	border: 2px solid white;
 }
 
-.send-startup {
+.input-email {
+	border: 1px solid #888;
+	color: black;
+}
+
+.send-startup, .send-email {
 	background: #124466;
 	position: relative;
 	margin-left: -4px;

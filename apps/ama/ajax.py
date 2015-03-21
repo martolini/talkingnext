@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django_ajax.decorators import ajax
 from django.core import serializers
-from .models import Host, Question
+from .models import Host, Question, Subscriber
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import ensure_csrf_cookie
 
@@ -19,3 +19,16 @@ def questions_view(request):
 		displayname = None
 	host = Host.objects.get(is_current=True)
 	return {'questions': host.get_all_questions(), 'displayName': displayname, 'host_id': host.pk }
+
+@ajax
+def save_spot_view(request):
+	email = request.POST.get('email')
+	host = Host.objects.get(is_current=True)
+	sub, created = Subscriber.objects.get_or_create(email=email, host=host)
+	return {'success': True}
+
+
+@ajax
+def subscribe_view(request):
+	sub, created = Subscriber.objects.get_or_create(email=request.POST.get('email'), host=Host.objects.get(is_current=True))
+	return {'success': True}

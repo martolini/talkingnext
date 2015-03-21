@@ -41,4 +41,4 @@ var ChatColumn = React.createClass({
 
 React.render(
 	<ChatColumn />, document.getElementById('questions-column')
-)
+);

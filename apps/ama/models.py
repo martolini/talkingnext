@@ -6,7 +6,7 @@ import time
 class Host(models.Model):
 	name = models.CharField(max_length=50)
 	startup = models.CharField(max_length=50, blank=True, null=True)
-	time = models.DateTimeField()
+	time = models.DateTimeField(blank=True, null=True)
 	is_current = models.BooleanField(default=False)
 
 	def get_all_questions(self):
@@ -52,5 +52,13 @@ class Comment(models.Model):
 	text = models.TextField()
 	author = models.ForeignKey(Profile, related_name='comments')
 	question = models.ForeignKey(Question, related_name='comments')
+
+
+class Subscriber(models.Model):
+	email = models.EmailField()
+	host = models.ForeignKey(Host, related_name='subscribers')
+
+	def __unicode__(self):
+		return self.email
 
 

@@ -5,48 +5,95 @@
 {% endblock %}
 
 {% block body %}
-	<div id="main-content">
-		<div id="home">
-			<div class="row background-solid">
-				<div class="row top-row">
-					<h1>Fuel your startup by <strong>asking</strong> proven entrepreneurs</h1>
-					<p class="subtext text-center">
-						Talking next is Dirtybit, creators on FunRun.
-					</p>
-				</div>
-				<div class="row">
-					<div class="col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-2 col-lg-2 col-lg-offset-3 col-xs-6" style="padding-top: 25px">
-						<img src="{% static 'img/featuring/funrun.png' %}" class="img-responsive pull-right" alt="Nicolaj Dirtybit Funrun">
-					</div>
-					<div class="col-sm-7 col-xs-12">
-						<div class="row">
-							<h5 class="event-title"><span>Topic is</span> Creating a viral application</h5>
-						</div>
-						<hr style="width: 10%; margin: 0; padding: 0;" class="pull-left">
-						<div class="row">
-							<h5 style="width: 60%" class="">Nicolaj Petersen, founder of <strong>FunRun</strong> got 40M downloads. Now he wants you to succeed as well. Line up to get your questions answered!</h5>
-						</div>
-						<div class="row">
-							<a href="#" class="btn btn-cta btn-lg">Join the AMA</a>
-							<a href="{% url 'talking_next_is' %}" class="btn btn-cta-second">Preview</a>
-						</div>
-					</div>
-				</div>
+<div id="main-content">
+	<div id="home">
+		<div class="row background-solid">
+			<div class="row top-row">
+				<h1>Fuel your startup by <strong>asking</strong> proven entrepreneurs</h1>
+				<p class="subtext text-center">
+					Talking next is Dirtybit, creators on FunRun.
+				</p>
 			</div>
-		</div>
-
-		<div id="feedback">
-			<div class="background-solid">
-				<h1>Who should be <strong>talking next</strong>?</h1>
-				<div class="container-colored-line">
-					<hr class="colored-line">
-					<div class="add-colored-line"></div>
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-2 col-lg-2 col-lg-offset-3 col-xs-6" style="padding-top: 25px">
+					<img src="{% static 'img/featuring/funrun.png' %}" class="img-responsive pull-right" alt="Nicolaj Dirtybit Funrun">
 				</div>
-				<form action="" class="input-wrapper">
-					<input type="text" class="input-startup" name="startup" placeholder="Airbnb">
-					<input type="submit" class="send-startup" value="Find them!">
-				</form>
+				<div class="col-sm-7 col-xs-12">
+					<div class="row">
+						<h5 class="event-title"><span>Topic is</span> Creating a viral application</h5>
+					</div>
+					<hr style="width: 10%; margin: 0; padding: 0;" class="pull-left">
+					<div class="row">
+						<h5 style="width: 60%" class="">Nicolaj Petersen, founder of <strong>FunRun</strong> got 40M downloads. Now he wants you to succeed as well. Line up to get your questions answered!</h5>
+					</div>
+					<div class="row">
+						<a href="{% url 'talking_next_is' %}" class="btn btn-cta btn-lg">Join the AMA</a>
+						<a href="{% url 'talking_next_is' %}" class="btn btn-cta-second">Preview</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
+
+	<div id="feedback">
+		<div class="background-solid">
+			<h1>Who should be <strong>talking next</strong>?</h1>
+			<div class="container-colored-line">
+				<hr class="colored-line">
+				<div class="add-colored-line"></div>
+			</div>
+			<form action="" id="talking-next-form" class="input-wrapper">
+				{% csrf_token %}
+				<input type="text" class="input-startup" name="startup" placeholder="Airbnb">
+				<input type="submit" class="send-startup" value="Find them!">
+			</form>
+			<p class="text-success text-center">We're on it! Leave your email so we can notify you!</p>
+		</div>
+	</div>
+
+	<div id="subscribe">
+		<div class="background-solid">
+			<h1>Get notified when <strong>awesome</strong> entrepreneurs is here</h1>
+			<div class="container-colored-line">
+				<hr class="colored-line">
+				<div class="add-colored-line"></div>
+			</div>
+			<form action="" id="notify-me-form" class="input-wrapper">
+				{% csrf_token %}
+				<input type="email" class="input-email" name="email" placeholder="josh.parker@gmail.com">
+				<input type="submit" class="send-email" value="Notify me!">
+			</form>
+		</div>
+		<p class="text-center text-muted" style="padding-top: 50px;">
+			Talk to us at 
+			<a href="mailto:martin@talkingnext.io">martin@talkingnext.io</a></br>
+		© 2015, talkingnext.io - All rights resered</p>
+	</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+	$(function() {
+		$('#talking-next-form').submit(function(e) {
+			e.preventDefault();
+			$.post('ajax/talkingnext/', $(this).serializeArray(), function(data) {
+				if (data.content.success) {
+					$('.text-success').show();
+				}
+			});
+		});
+
+		$('#notify-me-form').submit(function(e) {
+			e.preventDefault();
+			var that = $(this);
+			$.post('ajax/subscribe/', that.serializeArray(), function(data) {
+				if (data.content.success)
+					$('#subscribe').fadeOut(500);
+				else
+					console.log(data);
+			});
+		});
+	});
+</script>
 {% endblock %}

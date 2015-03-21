@@ -92,7 +92,7 @@ var QuestionInput = React.createClass({
 								<div className="form-group">
 									<div className="input-group">
 										<span className="input-group-addon"><i className="fa fa-envelope-o fa-fw"></i></span>
-										<input type="email" name="email" className="form-control" placeholder="josh.parker@email.com" />
+										<input type="email" name="email" className="form-control" placeholder="josh.parker@gmail.com" />
 									</div>
 								</div>
 								<div className="form-group">
@@ -119,7 +119,7 @@ var QuestionInput = React.createClass({
 								<div className="form-group">
 									<div className="input-group">
 										<span className="input-group-addon"><i className="fa fa-envelope-o fa-fw"></i></span>
-										<input type="email" name="email" className="form-control" placeholder="josh.parser@gmail.com" />
+										<input type="email" name="email" className="form-control" placeholder="josh.parker@gmail.com" />
 									</div>
 								</div>
 								<div className="form-group">
