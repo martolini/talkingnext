@@ -21,6 +21,7 @@ var QuestionStore = Reflux.createStore({
 	listenables: QuestionActions,
 
 	onPostQuestion: function(text) {
+		mixpanel.people.increment("Questions asked");
 		$.post('/ajax/questions/', {'text': text, 'host_id': _hostId});
 	},
 
@@ -34,7 +35,7 @@ var QuestionStore = Reflux.createStore({
 		var self = this;
 		$.get('/ajax/questions/', function(data) {
 			if (data.content.displayName)
-				UserActions.didAuthenticate(data.content.displayName);
+				UserActions.didAuthenticate(data.content.displayName, data.content.uid);
 			_hostId = data.content.host_id;
 			var questions = {};
 			data.content.questions.forEach(function(rawQuestion) {

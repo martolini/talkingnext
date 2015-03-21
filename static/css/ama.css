@@ -9,7 +9,7 @@
 	height: 100%;
 }
 
-#ama h1 {
+#ama h1, #ama h1 a {
 	padding-top: 25px;
 	color: white;
 	line-height: 5.1rem;

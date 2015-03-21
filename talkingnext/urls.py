@@ -7,7 +7,7 @@ from apps.ama.views import ama_view, ama_route
 from apps.profiles.ajax import create_user_view, authenticate_user
 
 urlpatterns = patterns('',
-    url(r'^$', TemplateView.as_view(template_name='landing.html')),
+    url(r'^$', TemplateView.as_view(template_name='landing.html'), name="landing"),
     url(r'^is/$', ama_route, name='talking_next_is'),
     url(r'^is/(?P<host>\w+)/$', ama_view),
     url(r'^ajax/questions/$', questions_view),

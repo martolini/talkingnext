@@ -15,7 +15,7 @@ def create_user_view(request):
 		user = auth.authenticate(username=request.POST.get('email'), password=request.POST.get('password'))
 		if user is not None:
 			auth.login(request, user)
-			return {'authenticated': True, 'displayName': request.user.get_full_name()}
+			return {'authenticated': True, 'displayName': request.user.get_full_name(), 'uid': p.pk, 'email': p.email}
 	else:
 		print form.errors
 	return {'authenticated': False}
@@ -29,6 +29,6 @@ def authenticate_user(request):
 		user = auth.authenticate(username=request.POST.get('email'), password=request.POST.get('password'))
 		if user is not None:
 			auth.login(request, user)
-			return {'authenticated': True, 'displayName': request.user.get_full_name()}
+			return {'authenticated': True, 'displayName': request.user.get_full_name(), 'uid': p.pk}
 		return {'authenticated': False}
 	return {'authenticated': False}
