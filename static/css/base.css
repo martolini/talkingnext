@@ -69,3 +69,17 @@ body {
     border-radius: 5px;
     border-radius: 10px;
 }
+
+.description {
+    color: #888;
+    line-height: 1.8;
+    font-weight: 400;
+    font-size: 15px;
+    text-align: left;
+    width: 50%;
+}
+
+em.description {
+    text-align: center;
+    padding-bottom: 25px;
+}

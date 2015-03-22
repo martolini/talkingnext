@@ -4,6 +4,7 @@ module.exports = {
 			id: rawQuestion.id,
 			createdAt: new Date(rawQuestion.created_at * 1000),
 			author: rawQuestion.author,
+			votes: rawQuestion.votes,
 			text: rawQuestion.text,
 		}
 	}

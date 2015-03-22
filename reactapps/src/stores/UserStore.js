@@ -25,6 +25,7 @@ var UserStore = Reflux.createStore({
 				'$email': data.content.email
 			});
 			mixpanel.alias(data.content.uid);
+			this.trigger(true);
 		}
 	},
 

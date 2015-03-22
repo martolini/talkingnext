@@ -94,15 +94,6 @@
 	padding: 45px 0;
 }
 
-#about .description {
-	color: #888;
-	line-height: 1.8;
-	font-weight: 400;
-	font-size: 15px;
-	text-align: center;
-	width: 50%;
-}
-
 #feedback h1, #subscribe h1, #about h1 {
 	text-align: center;
 	color: #888;

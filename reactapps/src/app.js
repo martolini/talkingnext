@@ -23,10 +23,11 @@ var ChatColumn = React.createClass({
 	render: function() {
 		var text = "";
 		if (this.state.authenticated)
-			text = UserStore.getDisplayName();
+			text = ", @" + UserStore.getDisplayName();
 		return (
 			<div>
-				<h1>Ask <strong>your</strong> questions {text}</h1>
+				<h1>Ask <strong>your</strong> questions{text}</h1>
+				<em className="description center-block">Leave your questions now!</em>
 				<div className="container-colored-line">
 					<hr className="colored-line" />
 					<div className="add-colored-line"></div>

@@ -25,6 +25,10 @@ var QuestionStore = Reflux.createStore({
 		$.post('/ajax/questions/', {'text': text, 'host_id': _hostId});
 	},
 
+	onVoteQuestion: function(question_id) {
+		$.post('/ajax/vote_question/', {'question_id': question_id});
+	},
+
 	onNewQuestion: function(question) {
 		question = QuestionUtils.convertRawQuestion(question);
 		_questions[question.id] = question;
@@ -45,8 +49,8 @@ var QuestionStore = Reflux.createStore({
 			_questions = questions
 			self.trigger(_getQuestionList());
 			pusher = new Pusher('0171d23077dc46bdf230');
-			channel = pusher.subscribe('h_' + _hostId);
-			channel.bind('new_question', self.onNewQuestion);
+			questionchannel = pusher.subscribe('h_' + _hostId);
+			questionchannel.bind('new_question', self.onNewQuestion);
 		});
 	}
 });

@@ -24,11 +24,16 @@ class Question(models.Model):
 	host = models.ForeignKey(Host, related_name='questions')
 	created_at = models.DateTimeField(auto_now_add=True)
 
+	@property
+	def votes_count(self):
+		return self.votes.count()
+
 	def as_json(self):
 		return dict(
 			id=self.id,
 			text=self.text,
 			author=self.author.get_full_name(),
+			votes=self.votes_count,
 			created_at=time.mktime(self.created_at.timetuple())
 			)
 
@@ -42,11 +47,11 @@ p = pusher.Pusher(
   secret='925188859f394647a793'
 )
 
-def push_after_creation(sender, instance, created, **kwargs):
+def push_question_after_creation(sender, instance, created, **kwargs):
 	if created:
 		p['h_{}'.format(instance.host_id)].trigger('new_question', instance.as_json())
 
-post_save.connect(push_after_creation, sender=Question)
+post_save.connect(push_question_after_creation, sender=Question)
 
 class Comment(models.Model):
 	text = models.TextField()
@@ -62,3 +67,12 @@ class Subscriber(models.Model):
 		return self.email
 
 
+class Vote(models.Model):
+	profile = models.ForeignKey(Profile, related_name='+')
+	question = models.ForeignKey(Question, related_name='votes')
+
+def push_vote_after_creation(sender, instance, created, **kwargs):
+	if created:
+		p['h_{}'.format(instance.question.host_id)].trigger('new_question', instance.question.as_json());
+
+post_save.connect(push_vote_after_creation, sender=Vote)

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django_ajax.decorators import ajax
 from django.core import serializers
-from .models import Host, Question, Subscriber
+from .models import Host, Question, Subscriber, Vote
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import ensure_csrf_cookie
 
@@ -31,4 +31,10 @@ def save_spot_view(request):
 @ajax
 def subscribe_view(request):
 	sub, created = Subscriber.objects.get_or_create(email=request.POST.get('email'), host=Host.objects.get(is_current=True))
+	return {'success': True}
+
+@ensure_csrf_cookie
+@ajax
+def vote_question_view(request):
+	vote, created = Vote.objects.get_or_create(question_id=request.POST.get('question_id'), profile_id=request.user.id)
 	return {'success': True}

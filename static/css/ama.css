@@ -87,6 +87,10 @@
 
 }
 
+em.description {
+	padding-bottom: 0;
+}
+
 .question-list-item .col-sm-1 {
 	padding-left: 0;
 }

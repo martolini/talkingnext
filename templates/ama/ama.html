@@ -10,7 +10,20 @@
 	<div class="col-md-6 text-center" id="ama">
 		<iframe id="amaframe" class="center-block" src="//www.ustream.tv/embed/20200651?wmode=direct&autoplay=1&showtitle=false" style="border: 0 none transparent; left: 0"  webkitallowfullscreen allowfullscreen frameborder="no" width="640" height="379"></iframe>
 		<h1><a href="{% url 'landing' %}">Talking next</a> is Dirtybit with FunRun</h1>
-		<h5>Creating a viral application, March 24st, 8pm UTC</h5>
+		<h5>Creating a viral application<br/>March 24st, 8pm UTC<br/>1 hour</h5>
+		<div title="Add to Calendar" class="addthisevent">
+			Add to Calendar
+			<span class="start">03/24/2015 20:00 PM</span>
+			<span class="end">03/24/2015 21:00 PM</span>
+			<span class="timezone">Europe/Paris</span>
+			<span class="title">FunRun is talkingnext.io</span>
+			<span class="description">Ask FunRun about creating a viral application</span>
+			<span class="location">talkingnext.io</span>
+			<span class="organizer">talkingnext and funrun</span>
+			<span class="organizer_email">msroed@gmail.com</span>
+			<span class="date_format">MM/DD/YYYY</span>
+		</div>
+
 	</div>
 	<div class="col-md-6" id="questions-column"></div>
 </div>
@@ -18,6 +31,7 @@
 {% endblock %}
 
 {% block scripts %}
+<script type="text/javascript" src="https://addthisevent.com/libs/1.6.0/ate.min.js"></script>
 <script>
 	$(function() {
 		$.ajaxSetup({
@@ -27,6 +41,12 @@
 		});
 
 		mixpanel.track("Ama session");
+
+		var viewer = UstreamEmbed('amaframe');
+
+		viewer.addListener('live', function(e) {
+			viewer.callMethod('play');
+		});
 	});
 </script>
 <script src="{% static 'js/ustream.js' %}"></script>
