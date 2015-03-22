@@ -11,7 +11,7 @@
 			<div class="row top-row">
 				<h1>Proven entrepreneurs answer <strong>your</strong> questions</h1>
 				<p class="subtext text-center">
-					You ask, they answer you on live video.
+					You ask, they answer you on live video.<a href="{% url 'talking_next_is' %}" class="btn btn-cta-second">Preview</a>
 				</p>
 			</div>
 			<div class="row">
@@ -27,7 +27,18 @@
 					</div>
 					<div class="row">
 						<a href="{% url 'talking_next_is' %}" class="btn btn-cta btn-lg">Join the AMA</a>
-						<a href="{% url 'talking_next_is' %}" class="btn btn-cta-second">Preview</a>
+						<div title="Add to Calendar" class="addthisevent">
+							Add to Calendar
+							<span class="start">03/24/2015 20:00 PM</span>
+							<span class="end">03/24/2015 21:00 PM</span>
+							<span class="timezone">Europe/Paris</span>
+							<span class="title">FunRun is talkingnext.io</span>
+							<span class="description">Ask FunRun about creating a viral application</span>
+							<span class="location">talkingnext.io</span>
+							<span class="organizer">talkingnext and funrun</span>
+							<span class="organizer_email">msroed@gmail.com</span>
+							<span class="date_format">MM/DD/YYYY</span>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -81,17 +92,27 @@
 				<input type="submit" class="send-email" value="Notify me!">
 			</form>
 		</div>
-		<p class="text-center text-muted" style="padding-top: 50px;">
+		<div class="social row text-center">
+			<a href="http://www.twitter.com/talkingnext_io" target="_blank">
+				<i class="fa fa-fw fa-twitter" style="color: #3498db"></i>@talkingnext_io
+			</a>
+		</div>
+		<p class="text-center text-muted">
 			Talk to us at 
-			<a href="mailto:martin@talkingnext.io">martin@talkingnext.io</a></br>
+			<a href="mailto:msroed@gmail.com">msroed@gmail.com</a></br>
 		© 2015, talkingnext.io - All rights resered</p>
 	</div>
 </div>
 {% endblock %}
 
 {% block scripts %}
+<script type="text/javascript" src="https://addthisevent.com/libs/1.6.0/ate.min.js"></script>
 <script>
 	$(function() {
+		addthisevent.settings({
+			css: true,
+			google : {show:true, text:"Google Calendar"},
+		});
 		mixpanel.track('Landing page')
 		$('#talking-next-form').submit(function(e) {
 			e.preventDefault();
@@ -123,5 +144,7 @@
 		mixpanel.track_links('.btn-cta', 'Clicked main CTA');
 		mixpanel.track_links('.btn-cta-second', "Click second CTA");
 	});
+
 </script>
+
 {% endblock %}

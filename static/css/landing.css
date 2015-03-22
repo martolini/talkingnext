@@ -148,3 +148,14 @@
 input:focus {
 	outline: none;
 }
+
+#atedrop1 {
+	margin-left: 15px;
+	background: #3498db;
+	border: 1px solid white;
+	color: white !important;
+	font-size: 16px;
+    font-family: 'Roboto';
+    font-weight: 400;
+    opacity: 0.9;
+}
