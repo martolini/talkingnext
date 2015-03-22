@@ -1,6 +1,7 @@
 from django.db import models
 from apps.profiles.models import Profile
 from django.db.models.signals import post_save
+from django.db.models import F
 import time
 
 class Host(models.Model):
@@ -80,3 +81,15 @@ def push_vote_after_creation(sender, instance, created, **kwargs):
 		p['h_{}'.format(instance.question.host_id)].trigger('new_question', instance.question.as_json());
 
 post_save.connect(push_vote_after_creation, sender=Vote)
+
+class Suggestion(models.Model):
+	host = models.CharField(max_length=100)
+	votes = models.PositiveIntegerField(default=1)
+
+	@classmethod
+	def create_or_increment(cls, host):
+		host = host.lower().strip()
+		if cls.objects.filter(host=host).exists():
+			cls.objects.filter(host=host).update(votes=F('votes')+1)
+		else:
+			cls.objects.create(host=host)

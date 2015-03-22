@@ -23,7 +23,7 @@
 						<h5 class="event-title"><span>Next session:</span> Creating a viral application</h5>
 					</div>
 					<div class="row">
-						<h5 style="width: 60%" class="">Nicolaj Broby Petersen, founder of <strong>FunRun</strong> got 45M players worldwide. Join the live video session with Nicolaj to get your questions answered.</br><strong>March 24th, 8PM UTC</strong></h5>
+						<h5 style="width: 60%" class="">Nicolaj Broby Petersen, founder of <strong>Fun Run</strong>, got 45M players worldwide. Join the live video session with Nicolaj to get your questions answered.</br><strong>March 24th, 8PM UTC</strong></h5>
 					</div>
 					<div class="row">
 						<a href="{% url 'talking_next_is' %}" class="btn btn-cta btn-lg">Join the AMA</a>
@@ -72,7 +72,7 @@
 			<em class="description text-center center-block">Nominate the entrepreneur you would like to see on talkingnext</em>
 			<form action="" id="talking-next-form" class="input-wrapper">
 				{% csrf_token %}
-				<input type="text" class="input-startup" name="startup" placeholder="Airbnb">
+				<input type="text" class="input-startup" name="host" placeholder="Airbnb" required>
 				<input type="submit" class="send-startup" value="Send">
 			</form>
 			<p class="text-success text-center" style="display: none;">We're on it! Leave your email so we can notify you!</p>

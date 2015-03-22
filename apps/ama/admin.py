@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Host, Question, Subscriber
+from .models import Host, Question, Subscriber, Suggestion, Vote
 
 @admin.register(Subscriber)
 class SubscriberAdmin(admin.ModelAdmin):
@@ -11,4 +11,8 @@ class HostAdmin(admin.ModelAdmin):
 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
-	list_display = ('id', 'short_text', 'host')
+	list_display = ('id', 'short_text', 'host', 'votes_count')
+
+@admin.register(Suggestion)
+class SuggestionAdmin(admin.ModelAdmin):
+	list_display = ('host', 'votes')

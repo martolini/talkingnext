@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django_ajax.decorators import ajax
 from django.core import serializers
-from .models import Host, Question, Subscriber, Vote
+from .models import Host, Question, Subscriber, Vote, Suggestion
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import ensure_csrf_cookie
 
@@ -37,4 +37,9 @@ def subscribe_view(request):
 @ajax
 def vote_question_view(request):
 	vote, created = Vote.objects.get_or_create(question_id=request.POST.get('question_id'), profile_id=request.user.id)
+	return {'success': True}
+
+@ajax
+def talkingnext_view(request):
+	Suggestion.create_or_increment(request.POST.get('host'))
 	return {'success': True}
