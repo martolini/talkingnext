@@ -28,6 +28,10 @@ class Question(models.Model):
 	def votes_count(self):
 		return self.votes.count()
 
+	@property
+	def short_text(self):
+		return self.text[:15]
+
 	def as_json(self):
 		return dict(
 			id=self.id,

@@ -11,4 +11,4 @@ class HostAdmin(admin.ModelAdmin):
 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
-	list_display = ('id', 'host')
+	list_display = ('id', 'short_text', 'host')

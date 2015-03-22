@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import Profile
-from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django import forms
 
 class ProfileChangeForm(UserChangeForm):
@@ -15,9 +15,22 @@ class ProfileChangeForm(UserChangeForm):
 		print self._errors
 		return valid
 
+class ProfileCreationForm(forms.ModelForm):
+
+	class Meta:
+		model = Profile
+		fields = ('email', 'password', 'display_name')
+
+	def save(self, *args, **kwargs):
+		p = super(ProfileCreationForm, self).save(commit=False)
+		p.save()
+		return p
+
+
 @admin.register(Profile)
 class ProfileAdmin(UserAdmin):
 	form = ProfileChangeForm
+	add_form = ProfileCreationForm
 	# The forms to add and change user instances
 
 	# The fields to be used in displaying the User model.
@@ -33,7 +46,7 @@ class ProfileAdmin(UserAdmin):
 	add_fieldsets = (
 		(None, {
 			'classes': ('wide',),
-			'fields': ('email', 'password',)}
+			'fields': ('email', 'password', 'display_name')}
 		),
 	)
 	search_fields = ('email',)
