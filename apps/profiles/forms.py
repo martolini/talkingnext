@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
 
 class ProfileCreationForm(forms.ModelForm):
+	display_name = forms.CharField(required=False)
 	class Meta:
 		model = Profile
 		fields = ('display_name', 'email', 'password')

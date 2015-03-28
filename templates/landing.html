@@ -6,16 +6,17 @@
 
 {% block body %}
 <div id="main-content">
+	{% include "navigation.html" %}
 	<div id="home">
 		<div class="row background-solid">
 			<div class="row top-row">
-				<h1>Proven entrepreneurs answer <strong>your</strong> questions</h1>
+				<h1 class="main-title">Proven entrepreneurs answer <strong>your</strong> questions</h1>
 				<p class="subtext text-center">
 					You ask, they answer you on live video.<a href="{% url 'talking_next_is' %}" class="btn btn-cta-second">Preview</a>
 				</p>
 			</div>
 			<div class="row">
-				<div class="col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-2 col-lg-2 col-lg-offset-3 col-xs-6" style="padding-top: 25px">
+				<div class="col-xs-6 col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-2 col-lg-3 col-lg-offset-2 col-xs-6" style="padding-top: 25px">
 					<img src="{% static 'img/featuring/startupstash.png' %}" class="img-responsive pull-right" alt="Bram Startup Stash">
 				</div>
 				<div class="col-sm-7 col-xs-12">
@@ -45,8 +46,28 @@
 		</div>
 	</div>
 
+	<div id="previous-sessions">
+		<div class="row-padding">
+			<h1>Previous session</h1>
+			<div class="container-colored-line">
+				<hr class="colored-line" />
+				<div class="add-colored-line"></div>
+			</div>
+			<div class="row">
+				<div class="col-sm-2 col-sm-offset-3">
+					<img src="{% static 'img/featuring/nicolaj.png' %}" alt="" class="img-responsive img-rounded" />
+				</div>
+				<div class="col-sm-6">
+					<p class="description">
+						Nicolaj, founder of Dirtybit, the company behind Fun Run got 45M players worldwide. He spent 30 minutes answering questions about <strong>creating a viral application</strong>. There were awesome questions, and awesome answers.
+					</p>
+					<a href="" class="btn btn-primary btn-lg">View past session</a>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div id="about">
-		<div class="background-solid">
+		<div class="row-padding">
 			<h1>What is <strong>talkingnext</strong></h1>
 			<div class="container-colored-line">
 				<hr class="colored-line" />
@@ -63,7 +84,7 @@
 		</div>
 	</div>
 	<div id="feedback">
-		<div class="background-solid">
+		<div class="row-padding">
 			<h1>Who should be <strong>talking next</strong>?</h1>
 			<div class="container-colored-line">
 				<hr class="colored-line">
@@ -80,7 +101,7 @@
 	</div>
 
 	<div id="subscribe">
-		<div class="background-solid">
+		<div class="row-padding">
 			<h1>Get notified when <strong>inspiring</strong> entrepreneurs are talking next</h1>
 			<div class="container-colored-line">
 				<hr class="colored-line">

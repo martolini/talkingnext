@@ -3,8 +3,9 @@ from django.contrib import admin
 from django.contrib.auth.views import logout
 from django.views.generic import TemplateView
 from apps.ama.ajax import questions_view, save_spot_view, subscribe_view, vote_question_view, talkingnext_view
-from apps.ama.views import ama_view, ama_route
+from apps.ama.views import ama_view, ama_route, archive_view, past_session_view
 from apps.profiles.ajax import create_user_view, authenticate_user
+from apps.profiles.views import login_view
 
 urlpatterns = patterns('',
     url(r'^$', TemplateView.as_view(template_name='landing.html'), name="landing"),
@@ -18,5 +19,8 @@ urlpatterns = patterns('',
     url(r'^ajax/subscribe/$', subscribe_view),
     url(r'^ajax/vote_question/$', vote_question_view),
     url(r'^ajax/talkingnext/$', talkingnext_view),
-    url(r'^logout/$', logout, name='logout', kwargs={'next_page': '/'})
+    url(r'^logout/$', logout, name='logout', kwargs={'next_page': '/'}),
+    url(r'^login/$', login_view, name='login'),
+    url(r'^archive/$', archive_view, name='archive'),
+    url(r'^archive/(?P<host>\w+)/$', past_session_view, name='past_session'),
 )

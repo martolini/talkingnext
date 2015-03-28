@@ -1,14 +1,3 @@
-.subtext {
-	color: white;
-	text-align: center;
-	font-size: 1.8em;
-	display: block;
-	font-family: 'Roboto';
-	font-weight: 400;
-	opacity: .75;
-	line-height: 1.8;
-}
-
 #home .img-responsive {
 	border: 5px solid white;
 }
@@ -41,12 +30,12 @@
 }
 
 #home .background-solid {
-   padding: 80px 0 0;
+   padding: 50px 0 0;
    padding-bottom: 50px;
    background: #3498db;
 }
 
-#home .background-solid h1 {
+.main-title {
 	text-align: center;
     margin: 0 0 5px;
     color:white;
@@ -72,6 +61,7 @@
 	font-size: 2.1em !important;
     font-weight: 600 !important;
     opacity: 1 !important;
+    width: 70%;
 }
 
 #home .event-title span {
@@ -86,15 +76,11 @@
 	background: #f1f1f1;
 }
 
-#feedback {
+#feedback, #previous-sessions {
 	background: white;
 }
 
-#subscribe .background-solid, #feedback .background-solid, #about .background-solid {
-	padding: 45px 0;
-}
-
-#feedback h1, #subscribe h1, #about h1 {
+#feedback h1, #subscribe h1, #about h1, #previous-sessions h1 {
 	text-align: center;
 	color: #888;
 	opacity: 0.9;

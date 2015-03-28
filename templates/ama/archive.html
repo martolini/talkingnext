@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+{% include "navigation.html" %}
+<div id="main-content" class="bg-blue" style="height: 100vh;">
+	<div id="home">
+		<div class="row row-padding">
+			<div class="row top-row">
+				<h1 class="main-title">Here are all our previous sessions</h1>
+				<p class="subtext text-center">
+					Enjoy :-)
+				</p>
+			</div>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-xs-3">
+									<img src="{% static 'img/featuring/nicolaj.png' %}" alt="Nicolaj Broby Petersen from Dirtybit" class="img-responsive img-rounded" />
+								</div>
+								<div class="col-xs-9">
+									<h1>Creating a viral application</h1>
+									<p class="description">
+										Nicolaj Broby Petersen, founder of Dirtybit and co-creator of Fun Run got 45M players worldwide. Now he wants you to succeed. See all the questions the community wanted to ask Nicolaj, and more importantly his answers.
+									</p>
+									<button class="btn btn-primary btn-lg">Watch session</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
