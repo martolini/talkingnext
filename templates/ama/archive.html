@@ -28,7 +28,7 @@
 									<p class="description">
 										Nicolaj Broby Petersen, founder of Dirtybit and co-creator of Fun Run got 45M players worldwide. Now he wants you to succeed. See all the questions the community wanted to ask Nicolaj, and more importantly his answers.
 									</p>
-									<button class="btn btn-primary btn-lg">Watch session</button>
+									<a class="btn btn-primary btn-lg" href="{% url 'past_session' 'funrun' %}">Watch session</a>
 								</div>
 							</div>
 						</div>
@@ -38,4 +38,12 @@
 		</div>
 	</div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+	$(function() {
+		mixpanel.track('Archive');
+	});
+</script>
 {% endblock %}

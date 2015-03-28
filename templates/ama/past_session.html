@@ -45,3 +45,11 @@
 	</div>
 </div>
 {% endblock %}
+
+{% block scripts %}
+<script>
+	$(function() {
+		mixpanel.track('Past session {{ host.name }}');
+	});
+</script>
+{% endblock %}

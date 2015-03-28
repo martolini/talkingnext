@@ -20,4 +20,5 @@ def login_view(request):
 				user = auth.authenticate(username=profile.email, password=request.POST.get('password'))
 				if user is not None:
 					auth.login(request, user)
+					return redirect('/')
 	return render(request, 'profiles/login.html')
