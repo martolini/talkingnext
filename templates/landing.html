@@ -24,14 +24,14 @@
 						<h5 class="event-title"><span>Next session:</span>How to successfully build and launch an MVP</h5>
 					</div>
 					<div class="row">
-						<h5 style="width: 60%" class="">Creator of <strong>Startup Stash</strong>, Bram Kanstein, got 150.000 page views in 24 hours, and was no. 1 listed on Product Hunt. Join the live video session with Bram to get your questions answered. </br><strong>April 1st, 8pm GMT</strong></h5>
+						<h5 style="width: 60%" class="">Creator of <strong><a href="http://startupstash.com" style="color: white;" target="_blank">Startup Stash</a></strong>, Bram Kanstein, got 150.000 page views in 24 hours, and was no. 1 listed on Product Hunt. Join the live video session with Bram to get your questions answered. </br><strong>April 1st, 8pm GMT</strong></h5>
 					</div>
 					<div class="row">
 						<a href="{% url 'talking_next_is' %}" class="btn btn-cta btn-lg">Join the AMA</a>
 						<div title="Add to Calendar" class="addthisevent">
 							Add to Calendar
-							<span class="start">04/01/2015 8:00 PM</span>
-							<span class="end">03/24/2015 20:45 PM</span>
+							<span class="start">04/01/2015 9:00 PM</span>
+							<span class="end">04/01/2015 9:45 PM</span>
 							<span class="timezone">Europe/Paris</span>
 							<span class="title">StartupStash is talkingnext.io</span>
 							<span class="description">Ask Bram about creating a viral application</span>
@@ -40,6 +40,9 @@
 							<span class="organizer_email">martin@talkingnext.io</span>
 							<span class="date_format">MM/DD/YYYY</span>
 						</div>
+					</div>
+					<div class="row">
+						<h5 id="countdown">5 hours left</h5>
 					</div>
 				</div>
 			</div>
@@ -129,6 +132,7 @@
 
 {% block scripts %}
 <script type="text/javascript" src="https://addthisevent.com/libs/1.6.0/ate.min.js"></script>
+<script type="text/javascript" src="{% static 'js/jquery.countdown.min.js' %}"></script>
 <script>
 	$(function() {
 		addthisevent.settings({
@@ -157,6 +161,10 @@
 				else
 					console.log(data);
 			});
+		});
+
+		$('#countdown').countdown('2015/04/01 21:00:00', function(event) {
+			$(this).html(event.strftime("The ama will start in %-H hours, %-M minutes and %-S seconds!"));
 		});
 
 		$('.img-responsive').on('click', function() {
