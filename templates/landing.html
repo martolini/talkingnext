@@ -41,9 +41,6 @@
 							<span class="date_format">MM/DD/YYYY</span>
 						</div>
 					</div>
-					<div class="row">
-						<h5 id="countdown">5 hours left</h5>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -163,9 +160,9 @@
 			});
 		});
 
-		$('#countdown').countdown('2015/04/01 21:00:00', function(event) {
-			$(this).html(event.strftime("The ama will start in %-H hours, %-M minutes and %-S seconds!"));
-		});
+		// $('#countdown').countdown('2015/04/01 21:00:00', function(event) {
+		// 	$(this).html(event.strftime("The ama will start in %-H hours, %-M minutes and %-S seconds!"));
+		// });
 
 		$('.img-responsive').on('click', function() {
 			mixpanel.track('Clicked Fun Run Image');
