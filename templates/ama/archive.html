@@ -6,7 +6,7 @@
 
 {% block body %}
 {% include "navigation.html" %}
-<div id="main-content" class="bg-blue" style="height: 100vh;">
+<div id="main-content" class="bg-blue">
 	<div id="home">
 		<div class="row row-padding">
 			<div class="row top-row">
@@ -15,26 +15,28 @@
 					Enjoy :-)
 				</p>
 			</div>
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<div class="row">
-								<div class="col-xs-3">
-									<img src="{% static 'img/featuring/nicolaj.png' %}" alt="Nicolaj Broby Petersen from Dirtybit" class="img-responsive img-rounded" />
-								</div>
-								<div class="col-xs-9">
-									<h1>Creating a viral application</h1>
-									<p class="description">
-										Nicolaj Broby Petersen, founder of Dirtybit and co-creator of Fun Run got 45M players worldwide. Now he wants you to succeed. See all the questions the community wanted to ask Nicolaj, and more importantly his answers.
-									</p>
-									<a class="btn btn-primary btn-lg" href="{% url 'past_session' 'funrun' %}">Watch session</a>
+			{% for host in hosts %}
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-xs-3">
+										<img src="{{ host.image_url }}" alt="{{ host.name }} from {{ host.startup }}" class="img-responsive img-rounded" />
+									</div>
+									<div class="col-xs-9">
+										<h1>{{ host.title }}</h1>
+										<p class="description">
+											{{ host.description }}
+										</p>
+										<a class="btn btn-primary btn-lg" href="{% url 'past_session' host.startup|lower %}">Watch session</a>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			{% endfor %}
 		</div>
 	</div>
 </div>
