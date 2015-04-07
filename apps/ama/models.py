@@ -9,12 +9,16 @@ class Host(models.Model):
 	startup = models.CharField(max_length=50, blank=True, null=True)
 	time = models.DateTimeField(blank=True, null=True)
 	is_current = models.BooleanField(default=False)
+	title = models.CharField(max_length=200)
+	video_url = models.URLField(blank=True, null=True)
+	image_url = models.URLField(blank=True, null=True)
+	description = models.TextField(blank=True, null=True)
 
 	def get_all_questions(self):
 		return [question.as_json() for question in self.questions.all().select_related('author')]
 
 	def get_absolute_url(self):
-		return '/is/%s' % self.name.lower()
+		return '/is/%s' % self.startup.lower()
 
 	def __unicode__(self):
 		return self.name

@@ -12,7 +12,9 @@ function _getQuestionList() {
 		questions.push(_questions[_id]);
 	}
 	questions.sort(function(a, b) {
-		return b.createdAt - a.createdAt;
+		if (a.votes == b.votes)
+			return b.created_at - a.created_at;
+		return b.votes - a.votes;
 	});
 	return questions;
 }

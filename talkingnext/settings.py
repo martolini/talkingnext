@@ -22,7 +22,11 @@ SECRET_KEY = '74*ks=+)pb5ib!1+&19l7!dwf%0pt)+yx%d2p_%-_5s0d%0a3p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 TEMPLATE_DEBUG = True
+=======
+TEMPLATE_DEBUG = DEBUG
+>>>>>>> dc5fa233f9591ea1799093a8b9a00e5ab80926ce
 
 ALLOWED_HOSTS = ['*']
 
@@ -80,6 +84,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Login
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
@@ -89,3 +98,8 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 STATIC_ROOT = 'staticfiles'
 
 AUTH_USER_MODEL = 'profiles.Profile'
+
+try:
+    from talkingnext.devsettings import *
+except ImportError:
+    pass

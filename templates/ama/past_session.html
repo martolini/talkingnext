@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+{% include "navigation.html" %}
+<div id="main-content" class="bg-blue">
+	<div id="home">
+		<div class="row row-padding">
+			<div class="row top-row">
+				<h1 class="main-title">{{ host.name }} from {{ host.startup }}</h1>
+				<p class="subtext text-center">
+					{{ host.title }}
+				</p>
+				<div class="col-xs-12">
+					<iframe class="center-block" width="560" height="315" src="{{ host.video_url }}" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							{% for question in questions %}
+								<div class="row">
+									<div class="col-xs-1">
+										<span class="icon">
+											<i class="fa fa-fw fa-thumbs-up"></i>
+										</span>
+										<span class="vote">{{ question.votes_count }}</span>
+									</div>
+									<div class="col-xs-11">
+										<p class="description">{{ question.text }}</p>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+	$(function() {
+		mixpanel.track('Past session {{ host.name }}');
+	});
+</script>
+{% endblock %}

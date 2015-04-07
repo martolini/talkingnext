@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+{% include "navigation.html" %}
+<div id="main-content" class="bg-blue">
+	<div id="home">
+		<div class="row row-padding">
+			<div class="row top-row">
+				<h1 class="main-title">Here are all our previous sessions</h1>
+				<p class="subtext text-center">
+					Enjoy :-)
+				</p>
+			</div>
+			{% for host in hosts %}
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-xs-3">
+										<img src="{{ host.image_url }}" alt="{{ host.name }} from {{ host.startup }}" class="img-responsive img-rounded" />
+									</div>
+									<div class="col-xs-9">
+										<h1>{{ host.title }}</h1>
+										<p class="description">
+											{{ host.description }}
+										</p>
+										<a class="btn btn-primary btn-lg" href="{% url 'past_session' host.startup|lower %}">Watch session</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+	$(function() {
+		mixpanel.track('Archive');
+	});
+</script>
+{% endblock %}
