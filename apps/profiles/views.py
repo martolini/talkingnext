@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
+from django.core.urlresolvers import reverse
 from .forms import ProfileCreationForm
 
 def login_view(request):
@@ -13,6 +14,7 @@ def login_view(request):
 				auth.login(request, user)
 				if request.GET.get('next') is not None:
 					return redirect(request.GET.get('next'))
+				return redirect(reverse('archive'))
 		elif form_type == 'register':
 			form = ProfileCreationForm(request.POST)
 			if form.is_valid():
