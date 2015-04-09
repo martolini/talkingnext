@@ -10,7 +10,10 @@ def questions_view(request):
 	if request.POST:
 		text = request.POST.get('text')
 		host_id = request.POST.get('host_id')
-		q = Question.objects.create(author=request.user, text=text, host_id=host_id)
+		try:
+			q = Question.objects.create(author=request.user, text=text, host_id=host_id)
+		except Exception, e:
+			import traceback; traceback.print_exc();
 		return {}
 	if request.user.is_authenticated():
 		screen_name = request.user.screen_name;

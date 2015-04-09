@@ -6,6 +6,7 @@ from django import forms
 
 class ProfileChangeForm(UserChangeForm):
 	username = forms.CharField(required=False)
+	email = forms.CharField(required=False)
 	class Meta:
 		model = Profile
 		fields = ('id', 'email', 'password', 'screen_name')
@@ -38,14 +39,14 @@ class ProfileAdmin(UserAdmin):
 	list_display = ('id', 'screen_name')
 	list_filter = ('is_superuser','is_staff')
 	fieldsets = (
-		(None, {'fields': ('email', 'password', 'screen_name')}),
+		(None, {'fields': ('twitter_id', 'email', 'password', 'screen_name')}),
 	)
 	# add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
 	# overrides get_fieldsets to use this attribute when creating a user.
 	add_fieldsets = (
 		(None, {
 			'classes': ('wide',),
-			'fields': ('email', 'password', 'screen_name')}
+			'fields': ('id', 'password', 'screen_name')}
 		),
 	)
 	search_fields = ('email',)

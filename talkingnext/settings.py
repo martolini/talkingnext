@@ -67,7 +67,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 import dj_database_url
 DATABASES = {}
-DATABASES['default'] =  dj_database_url.config(default='sqlite:///%s' % (os.path.join(BASE_DIR, 'db.sqlite3')))
+DATABASES['default'] =  dj_database_url.config(default='postgres://martinroed@localhost/talkingnext')
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
@@ -95,6 +95,40 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 STATIC_ROOT = 'staticfiles'
 
 AUTH_USER_MODEL = 'profiles.Profile'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        },
+        'console':{
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler'
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+            },
+        'django_ajax': {
+            'handlers': ['console'],
+            'level': 'INFO'
+        },
+
+        }
+}
 
 try:
     from talkingnext.devsettings import *

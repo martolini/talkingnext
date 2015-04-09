@@ -4,7 +4,7 @@ from django.contrib.auth.views import logout
 from django.views.generic import TemplateView
 from apps.ama.ajax import questions_view, save_spot_view, subscribe_view, vote_question_view, talkingnext_view
 from apps.ama.views import ama_view, ama_route, archive_view, past_session_view
-from apps.profiles.ajax import create_user_view, authenticate_user, create_or_login_view
+from apps.profiles.ajax import create_or_login_view
 from apps.profiles.views import login_view, profile_view
 
 urlpatterns = patterns('',
@@ -14,8 +14,6 @@ urlpatterns = patterns('',
     url(r'^ajax/questions/$', questions_view),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^ajax/login/', create_or_login_view),
-    url(r'^ajax/create_user/$', create_user_view),
-    url(r'^ajax/authenticate_user/$', authenticate_user),
     url(r'^ajax/save_spot/$', save_spot_view),
     url(r'^ajax/subscribe/$', subscribe_view),
     url(r'^ajax/vote_question/$', vote_question_view),

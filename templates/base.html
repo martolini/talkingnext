@@ -69,7 +69,7 @@ s0.parentNode.insertBefore(s1,s0);
 			return twitter.api('me');
 		})
 		.then(function(profile) {
-			$.post("/ajax/login/", {id: profile.id, screen_name: profile.screen_name, avatar: profile.thumbnail.replace('normal', 'bigger')}, function(data) {
+			$.post("/ajax/login/", {twitter_id: profile.id, screen_name: profile.screen_name, avatar: profile.thumbnail.replace('normal', 'bigger')}, function(data) {
 				if (data.content.authenticated) {
 					if (data.content.created) {
 						mixpanel.alias(data.content.id);
@@ -97,7 +97,7 @@ s0.parentNode.insertBefore(s1,s0);
 		$('#a-login').click(function(e) {
 			e.preventDefault();
 			doLogin(function(profile) {
-				window.location = '/';
+				window.location = "{% url 'profile' %}";
 			});
 		});
 

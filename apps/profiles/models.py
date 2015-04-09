@@ -3,11 +3,11 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 from django.conf import settings
 
 class ProfileManager(BaseUserManager):
-	def create_user(self, id, screen_name, **extra_fields):
-		if not id:
-			raise ValueError('Profile needs an unique ID')
+	def create_user(self, twitter_id, screen_name, **extra_fields):
+		if not twitter_id:
+			raise ValueError('Profile needs an unique twitter_id')
 		user = self.model(
-			id=id,
+			twitter_id=twitter_id,
 			screen_name=screen_name,
 			**extra_fields)
 		if 'password' in extra_fields:
@@ -17,8 +17,8 @@ class ProfileManager(BaseUserManager):
 		user.save(using=self._db)
 		return user
 
-	def create_superuser(self, id, password):
-		user = self.create_user(id,
+	def create_superuser(self, twitter_id, password):
+		user = self.create_user(twitter_id,
 			password=password,
 			screen_name='admin',
 			email='admin@admin.no',
@@ -28,13 +28,13 @@ class ProfileManager(BaseUserManager):
 		return user
 
 class Profile(AbstractBaseUser, PermissionsMixin):
-	id = models.BigIntegerField(primary_key=True, unique=True)
+	twitter_id = models.BigIntegerField(unique=True)
 	email = models.EmailField(max_length=255)
 	screen_name = models.CharField(max_length=30, blank=True, null=True)
 	is_staff = models.BooleanField(default=False)
 	date_joined = models.DateTimeField(auto_now_add=True)
 	avatar = models.URLField(blank=True, null=True)
-	USERNAME_FIELD = 'id'
+	USERNAME_FIELD = 'twitter_id'
 
 	objects = ProfileManager()
 
