@@ -34,5 +34,4 @@ def profile_view(request):
 		profile = request.user
 		profile.email = request.POST.get('email', '')
 		profile.save()
-		messages.success(request, "Email successfully changed")
 	return render(request, 'profiles/profile.html', {'profile': request.user})
