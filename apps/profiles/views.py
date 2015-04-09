@@ -3,7 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 def login_view(request):
-	return render(request, 'profiles/login.html')
+	next = request.GET.get('next', '/profile/')
+	return render(request, 'profiles/login.html', {'next': next})
 
 @login_required
 def profile_view(request):

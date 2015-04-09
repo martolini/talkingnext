@@ -93,7 +93,7 @@
 <script type="text/javascript">
 	function logInTwitter() {
 		doLogin(function(profile) {
-			window.location = "{% url 'profile' %}";
+			window.location = '{{ next }}';
 		});
 	}
 	$(function() {
