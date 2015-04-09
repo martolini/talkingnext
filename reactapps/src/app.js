@@ -23,7 +23,7 @@ var ChatColumn = React.createClass({
 	render: function() {
 		var text = "";
 		if (this.state.authenticated)
-			text = ", @" + UserStore.getDisplayName();
+			text = ", @" + UserStore.getScreenName();
 		return (
 			<div>
 				<h1>Ask <strong>your</strong> questions{text}</h1>

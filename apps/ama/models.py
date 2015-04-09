@@ -3,6 +3,7 @@ from apps.profiles.models import Profile
 from django.db.models.signals import post_save
 from django.db.models import F
 import time
+import json
 
 class Host(models.Model):
 	name = models.CharField(max_length=50)
@@ -28,6 +29,8 @@ class Question(models.Model):
 	author = models.ForeignKey(Profile, related_name='questions')
 	host = models.ForeignKey(Host, related_name='questions')
 	created_at = models.DateTimeField(auto_now_add=True)
+	answered = models.BooleanField(default=False)
+	current_question = models.BooleanField(default=False)
 
 	@property
 	def votes_count(self):
@@ -42,8 +45,11 @@ class Question(models.Model):
 			id=self.id,
 			text=self.text,
 			author=self.author.get_full_name(),
-			votes=self.votes_count,
-			created_at=time.mktime(self.created_at.timetuple())
+			votes=json.dumps(list(self.votes.all().values_list('profile_id', flat=True))),
+			avatar=self.author.avatar,
+			created_at=time.mktime(self.created_at.timetuple()),
+			answered=self.answered,
+			current_question=self.current_question,
 			)
 
 	def __unicode__(self):
@@ -59,6 +65,8 @@ p = pusher.Pusher(
 def push_question_after_creation(sender, instance, created, **kwargs):
 	if created:
 		p['h_{}'.format(instance.host_id)].trigger('new_question', instance.as_json())
+	else:
+		p['h_{}'.format(instance.host_id)].trigger('question_changed', instance.as_json())
 
 post_save.connect(push_question_after_creation, sender=Question)
 
@@ -80,9 +88,15 @@ class Vote(models.Model):
 	profile = models.ForeignKey(Profile, related_name='+')
 	question = models.ForeignKey(Question, related_name='votes')
 
+	def as_json(self):
+		return dict(
+			profile_id=self.profile.id,
+			question_id=self.question.id
+			)
+
 def push_vote_after_creation(sender, instance, created, **kwargs):
 	if created:
-		p['h_{}'.format(instance.question.host_id)].trigger('new_question', instance.question.as_json());
+		p['h_{}'.format(instance.question.host_id)].trigger('new_vote', instance.as_json());
 
 post_save.connect(push_vote_after_creation, sender=Vote)
 

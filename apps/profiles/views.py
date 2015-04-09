@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
+from .models import Profile
 from .forms import ProfileCreationForm
+from django.contrib import messages
 
 def login_view(request):
 	if request.POST:
@@ -24,3 +27,12 @@ def login_view(request):
 					auth.login(request, user)
 					return redirect('/')
 	return render(request, 'profiles/login.html')
+
+@login_required
+def profile_view(request):
+	if request.POST:
+		profile = request.user
+		profile.email = request.POST.get('email', '')
+		profile.save()
+		messages.success(request, "Email successfully changed")
+	return render(request, 'profiles/profile.html', {'profile': request.user})

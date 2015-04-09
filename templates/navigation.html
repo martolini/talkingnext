@@ -21,10 +21,10 @@
 				</li>
 				{% if user.is_authenticated %}
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">@{{ user.display_name }}<span class="caret"></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">@{{ user.screen_name }}<span class="caret"></a>
 						<ul class="dropdown-menu" role="menu">
 							<li>
-								<a href="#">Profile</a>
+								<a href="{% url 'profile' %}">Profile</a>
 							</li>
 							<li>
 								<a href="{% url 'logout' %}">Logout</a>
@@ -33,7 +33,7 @@
 					</li>
 				{% else %}
 					<li>
-						<a href="{% url 'login' %}">Log in</a>
+						<a id="a-login" href="{% url 'login' %}">Log in</a>
 					</li>
 				{% endif %}
 			</ul>

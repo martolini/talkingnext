@@ -153,3 +153,24 @@ em.description {
 		height: 379px;
 	}
 }
+
+.question-list-item-enter {
+	opacity: 0.01;
+	transition: opacity .5s ease-in;
+}
+
+.question-list-item-enter-active {
+	opacity: 1;
+}
+
+.green {
+	color: green !important;
+}
+
+.faded {
+	opacity: 0.3;
+}
+
+.bordered {
+	border: 2px solid black !important;
+}

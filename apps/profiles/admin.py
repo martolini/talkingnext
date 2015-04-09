@@ -8,18 +8,17 @@ class ProfileChangeForm(UserChangeForm):
 	username = forms.CharField(required=False)
 	class Meta:
 		model = Profile
-		fields = ('email', 'password', 'display_name')
+		fields = ('id', 'email', 'password', 'screen_name')
 
 	def is_valid(self, *args, **kwargs):
 		valid = super(ProfileChangeForm, self).is_valid(*args, **kwargs)
-		print self._errors
 		return valid
 
 class ProfileCreationForm(forms.ModelForm):
 
 	class Meta:
 		model = Profile
-		fields = ('email', 'password', 'display_name')
+		fields = ('id', 'password', 'screen_name')
 
 	def save(self, *args, **kwargs):
 		p = super(ProfileCreationForm, self).save(commit=False)
@@ -36,17 +35,17 @@ class ProfileAdmin(UserAdmin):
 	# The fields to be used in displaying the User model.
 	# These override the definitions on the base UserAdmin
 	# that reference specific fields on auth.User.
-	list_display = ('email', 'display_name')
+	list_display = ('id', 'screen_name')
 	list_filter = ('is_superuser','is_staff')
 	fieldsets = (
-		(None, {'fields': ('email', 'password', 'display_name')}),
+		(None, {'fields': ('email', 'password', 'screen_name')}),
 	)
 	# add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
 	# overrides get_fieldsets to use this attribute when creating a user.
 	add_fieldsets = (
 		(None, {
 			'classes': ('wide',),
-			'fields': ('email', 'password', 'display_name')}
+			'fields': ('email', 'password', 'screen_name')}
 		),
 	)
 	search_fields = ('email',)

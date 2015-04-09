@@ -5,7 +5,6 @@ from .models import Host, Question, Subscriber, Vote, Suggestion
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import ensure_csrf_cookie
 
-@ensure_csrf_cookie
 @ajax
 def questions_view(request):
 	if request.POST:
@@ -14,11 +13,11 @@ def questions_view(request):
 		q = Question.objects.create(author=request.user, text=text, host_id=host_id)
 		return {}
 	if request.user.is_authenticated():
-		displayname = request.user.get_full_name()
+		screen_name = request.user.screen_name;
 	else:
-		displayname = None
+		screen_name = None
 	host = Host.objects.get(is_current=True)
-	return {'questions': host.get_all_questions(), 'displayName': displayname, 'host_id': host.pk }
+	return {'questions': host.get_all_questions(), 'screen_name': screen_name, 'host_id': host.pk, 'id': request.user.id }
 
 @ajax
 def save_spot_view(request):
@@ -33,7 +32,6 @@ def subscribe_view(request):
 	sub, created = Subscriber.objects.get_or_create(email=request.POST.get('email'), host=Host.objects.get(is_current=True))
 	return {'success': True}
 
-@ensure_csrf_cookie
 @ajax
 def vote_question_view(request):
 	vote, created = Vote.objects.get_or_create(question_id=request.POST.get('question_id'), profile_id=request.user.id)

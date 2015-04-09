@@ -11,7 +11,8 @@ class HostAdmin(admin.ModelAdmin):
 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
-	list_display = ('id', 'short_text', 'host', 'votes_count')
+	list_display = ('id', 'short_text', 'host', 'current_question', 'author' ,'votes_count')
+	list_filter = ('host__startup',)
 
 @admin.register(Suggestion)
 class SuggestionAdmin(admin.ModelAdmin):
