@@ -17,7 +17,7 @@ class ProfileManager(BaseUserManager):
 		user.save(using=self._db)
 		return user
 
-	def create_superuser(self, twitter_id, password):
+	def create_superuser(self, twitter_id, screen_name, password):
 		user = self.create_user(twitter_id,
 			password=password,
 			screen_name='admin',
@@ -28,13 +28,13 @@ class ProfileManager(BaseUserManager):
 		return user
 
 class Profile(AbstractBaseUser, PermissionsMixin):
-	twitter_id = models.BigIntegerField(unique=True)
+	twitter_id = models.BigIntegerField(blank=True, null=True)
 	email = models.EmailField(max_length=255)
-	screen_name = models.CharField(max_length=30, blank=True, null=True)
+	screen_name = models.CharField(max_length=30, unique=True)
 	is_staff = models.BooleanField(default=False)
 	date_joined = models.DateTimeField(auto_now_add=True)
 	avatar = models.URLField(blank=True, null=True)
-	USERNAME_FIELD = 'twitter_id'
+	USERNAME_FIELD = 'screen_name'
 
 	objects = ProfileManager()
 

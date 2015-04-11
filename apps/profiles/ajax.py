@@ -19,7 +19,7 @@ def create_or_login_view(request):
 			created = True
 		else:
 			print form.errors
-	user = auth.authenticate(username=twitter_id, password=settings.SECRET_PASSWORD)
+	user = auth.authenticate(username=p.screen_name, password=settings.SECRET_PASSWORD)
 	if user is not None:
 		auth.login(request, user)
 		return {'authenticated': True, 'screen_name': p.screen_name, 'avatar': p.avatar, 'created': False, 'id': p.twitter_id}
