@@ -18,7 +18,7 @@ def ama_route(request):
 
 @login_required
 def archive_view(request):
-	return render(request, 'ama/archive.html', {'hosts': Host.objects.all()})
+	return render(request, 'ama/archive.html', {'hosts': Host.objects.filter(is_current=False)})
 
 @login_required
 def past_session_view(request, startup):
