@@ -26,7 +26,7 @@ class Host(models.Model):
 
 class Question(models.Model):
 	text = models.TextField()
-	author = models.ForeignKey(Profile, related_name='questions')
+	author = models.ForeignKey(Profile, related_name='questions', blank=True, null=True)
 	host = models.ForeignKey(Host, related_name='questions')
 	created_at = models.DateTimeField(auto_now_add=True)
 	answered = models.BooleanField(default=False)
@@ -38,7 +38,7 @@ class Question(models.Model):
 
 	@property
 	def short_text(self):
-		return self.text[:15]
+		return self.text[:30]
 
 	def as_json(self):
 		return dict(
@@ -53,7 +53,7 @@ class Question(models.Model):
 			)
 
 	def __unicode__(self):
-		return self.text[:15]
+		return self.text[:30]
 
 import pusher
 p = pusher.Pusher(
