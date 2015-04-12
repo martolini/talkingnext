@@ -1,0 +1,1160 @@
+[
+  {
+    "fields": {
+      "time": "2015-04-06T12:51:44Z",
+      "title": "Creating a viral application",
+      "video_url": "https://www.youtube.com/embed/VsW4-Udar30",
+      "description": "Nicolaj, founder of Dirtybit, the company behind Fun Run got 45M players worldwide. He spent 30 minutes answering questions about creating a viral application. There were awesome questions, and awesome answers.",
+      "startup": "DirtyBit",
+      "name": "Nicolaj Broby Petersen",
+      "image_url": "http://talkingnext.io/static/img/featuring/nicolaj.png",
+      "is_current": false
+    },
+    "model": "ama.host",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "time": "2015-04-01T19:40:58Z",
+      "title": "How to successfully build and launch an MVP",
+      "video_url": "https://www.youtube.com/embed/d1bFrdvxA6c",
+      "description": "Creator of Startup Stash, Bram Kanstein, got 150.000 page views in 24 hours, and was no. 1 listed on Product Hunt;",
+      "startup": "StartupStash",
+      "name": "Bram Kanstein",
+      "image_url": "http://talkingnext.io/static/img/featuring/startupstash.png",
+      "is_current": true
+    },
+    "model": "ama.host",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-22T13:17:27.745Z",
+      "text": "I heard that twitter was your most important word-of-mouth channel when you launched Fun Run 1. What other word-of-mouth channels were significant, and do you personally believe twitter was the most important?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-22T16:52:56.481Z",
+      "text": "How important is Facebook for your marketing?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-22T16:54:13.284Z",
+      "text": "How did you work with retention?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-22T19:27:37.924Z",
+      "text": "If you have a limited amount of resources dedicated to social media interaction, do you think its important to be visible on all platforms (fb, twitter, instagram etc) or is it better to solely focus on one?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T14:27:09.836Z",
+      "text": "Would you characterise Fun Run as a platform that operates in a 2-sided market? Why, or why not? The reason I am asking this is to look at how Fun Run is positioned as a game that has optimised user acquisition and engagement, as well as optimising advertising and in-app purchases.",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T14:34:31.386Z",
+      "text": "What has been your most important resource (most effective, least effort) in order to grow your user base?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T18:41:38.100Z",
+      "text": "How do you define \"viral\"? It seems that it is a chaotic and uncontrolled process. Was the explosive growth of Fun Run controlled in some way, or were you guys just lucky that you managed to cope with the virality? ",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 24
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T18:49:39.305Z",
+      "text": "How does running a company with an international market from Norway work out for you? How do you do equity splits? ",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 25
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T18:52:56.754Z",
+      "text": "What were their main Marketing actions...?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 27
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T18:52:57.006Z",
+      "text": "Was fun run your first game? Do you have any others that you're currently working on?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 28
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T18:54:39.854Z",
+      "text": "How did they achieve sales traction on the game...?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 29
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T18:55:58.021Z",
+      "text": "What was the major thing which made the succes for Fun Run...?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 30
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T18:56:55.259Z",
+      "text": "start now?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 31
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T18:57:52.849Z",
+      "text": "Hi nico!",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T18:58:56.718Z",
+      "text": "Do you often work remotely? for instance; programming when you are travelling or on vacation?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 33
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:00:44.003Z",
+      "text": "How long did it take for Fun Run to take off",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:01:03.311Z",
+      "text": "What do you think about the success rate of the norwegian school of entrepreneurship (ES)? Why do you think it is so?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:02:41.077Z",
+      "text": "What kind of metrics do you use for tracking growth at FunRun?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 36
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:04:39.198Z",
+      "text": "Did/do you use rapid prototyping when developing Fun Run?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 37
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:06:03.991Z",
+      "text": "Did you do any things that did not scale easily after the release of FunRun?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 38
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:07:38.517Z",
+      "text": "When did you start monetizing?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 39
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:10:12.075Z",
+      "text": "How desperate were you to hire more people? Did it work, was it worth it?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 40
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:10:24.579Z",
+      "text": "What would you have done differently if you were to start all over again?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 41
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:12:11.102Z",
+      "text": "Did you use anything you learned in school when developing Funrun( from NTNU), or did you learn the most yourself? ",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 42
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:14:40.491Z",
+      "text": "What type of non-gaming apps would you consider to be most similar to Fun Run, or games in general, regarding ability to go viral?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 43
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:16:13.170Z",
+      "text": "What is the most important thing you have learned from the Fun Run \"adventure\"?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 44
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:18:37.174Z",
+      "text": "How are you working to find ideas for new concepts?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 45
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:22:10.464Z",
+      "text": "You briefly spoke about how you used to bring prototypes of FunRun to parties to hear what people had to say, did you do any other \"manual\" recruiting?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 46
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:24:12.919Z",
+      "text": "How important was a college education to you and your team in developing FunRun",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 47
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:27:23.943Z",
+      "text": "Why do you think Fun Run got so popular?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 48
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:27:39.552Z",
+      "text": "Did growth stagnate after the word-of-mouth-effect you created at the university? if so, what did you do to prevent that?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 49
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:30:26.647Z",
+      "text": "Do you think it would have helped to live inside the US at launch?",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 50
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:30:36.592Z",
+      "text": "Thanks Nicolaj!",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 51
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:30:40.868Z",
+      "text": "Thanks alot for the session! It was awesome!",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 52
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:30:41.729Z",
+      "text": "THANKS",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 53
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:30:45.406Z",
+      "text": "Nice job!",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 54
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:30:47.622Z",
+      "text": "Great stuff, thanks",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 55
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:30:48.149Z",
+      "text": "Thanks for the session!!",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 56
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:30:56.990Z",
+      "text": "Awesome!",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 57
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:31:16.794Z",
+      "text": "Thanks for being megacool!",
+      "host": 1,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 58
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-03-24T19:53:39.800Z",
+      "text": "What advice would you give to teenagers in high school who want to start their own businesses? ",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 60
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T09:58:27.399Z",
+      "text": "What is the most critical part when launching a new site?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 61
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T15:14:17.356Z",
+      "text": "me and my friends are dying to know, what's next for startupstash? ",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 62
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T16:02:39.213Z",
+      "text": "how's the retention rate of SS? ",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 63
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T17:46:48.681Z",
+      "text": "How do you find and keep, what seems to be the rarest commodity nowadays, good tech developers?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 64
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T18:29:26.502Z",
+      "text": "How finished/unfinished was your MVP for Startupstash when you launched? What functionality has you added after user feedback?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 65
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T18:36:19.787Z",
+      "text": "In what phase should my startup start thinking about getting external boardmembers?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 66
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T18:38:44.149Z",
+      "text": "What are the most curcial parameters for Startup Stash? How do you monitor them?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 67
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T18:42:20.461Z",
+      "text": "MVP or business plan first?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 68
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:03:14.531Z",
+      "text": "What language/framework did you build startupstash.com with?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 69
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:03:17.130Z",
+      "text": "How did you come up with the idea for startup stash?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 70
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:04:31.873Z",
+      "text": "How did you get so many user to sign up so quickly?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 71
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:05:47.219Z",
+      "text": "What was the biggest kickstart to the traction? 150k views is crazy, how did it catch fire?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 72
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:10:33.958Z",
+      "text": "Why does startupstash not seem to offer any information on Information security? Or did I just miss something...",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 73
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:14:18.667Z",
+      "text": "How do you build yourself a name and get traction on pages like Producthunt and Betalist? Any advise?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 75
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:15:09.937Z",
+      "text": "Is it just you, or do you have co-founders?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 76
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:16:35.273Z",
+      "text": "What do you think of the startup ecosystem in The Netherlands, and how does it compare to startup hotspots around the world (san fran, london etc.)?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 77
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:16:58.657Z",
+      "text": "Cool bro. How do you plan on monetizing startup stash?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 78
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:21:03.828Z",
+      "text": "What do you think about running a business with no monetization strategy? ",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 79
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:21:13.932Z",
+      "text": "What's your background? What do you think about starting a startup while having other commitments like being in school or working another job?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 80
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:21:30.679Z",
+      "text": "Could you give an in depth description of startupstash ",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 81
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:23:24.785Z",
+      "text": "Would you consider StartupStash a company or a product/service?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 83
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:24:32.924Z",
+      "text": "Which monitoring services do you use? What are the most important metrics?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 84
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:24:53.645Z",
+      "text": "Have you prepared for any surges in traffic in the coming weeks? For example, a DDOS.",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 85
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:31:23.262Z",
+      "text": "Have you looked for any kind of funding or external network for startupstash?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 87
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:38:30.157Z",
+      "text": "Have you considered selling startup stash?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 89
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:41:14.928Z",
+      "text": "Have you ever considered to you use the voice of the crowd? Opening up your platform and let it curated by your users/visitors?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 90
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:45:11.314Z",
+      "text": "Why dou you think people trust your judgement on the stash so much?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 92
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T19:47:04.621Z",
+      "text": "Why do you think people trust your judgement on the stash so much?",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 93
+  },
+  {
+    "fields": {
+      "current_question": false,
+      "created_at": "2015-04-01T23:15:58.703Z",
+      "text": "what were your challenges when you had to bootstrap",
+      "host": 2,
+      "answered": false
+    },
+    "model": "ama.question",
+    "pk": 94
+  },
+  {
+    "fields": {
+      "email": "malin.husefest@gmail.com",
+      "host": 1
+    },
+    "model": "ama.subscriber",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "email": "jorgen@cloudure.no",
+      "host": 1
+    },
+    "model": "ama.subscriber",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "email": "nilashis@gmail.com",
+      "host": 1
+    },
+    "model": "ama.subscriber",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "email": "talk@zacharybarden.com",
+      "host": 1
+    },
+    "model": "ama.subscriber",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "email": "alexpcheung@gmail.com",
+      "host": 1
+    },
+    "model": "ama.subscriber",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "email": "jonathan.holt.thomas@gmail.com",
+      "host": 1
+    },
+    "model": "ama.subscriber",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "email": "martintest@gmail.com",
+      "host": 1
+    },
+    "model": "ama.subscriber",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "email": "email@michaelmcmillan.net",
+      "host": 1
+    },
+    "model": "ama.subscriber",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "email": "birgela@stud.ntnu.no",
+      "host": 1
+    },
+    "model": "ama.subscriber",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "email": "oleevjenth@gmail.com",
+      "host": 1
+    },
+    "model": "ama.subscriber",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "email": "benoror@gmail.com",
+      "host": 1
+    },
+    "model": "ama.subscriber",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "email": "eriksenoddeirik@gmail.com",
+      "host": 1
+    },
+    "model": "ama.subscriber",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "email": "haakon.weloy.aarseth@gmail.com",
+      "host": 1
+    },
+    "model": "ama.subscriber",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "email": "kristoffer.a.iversen@gmail.com",
+      "host": 1
+    },
+    "model": "ama.subscriber",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "email": "vidar.sollie@gmail.com",
+      "host": 1
+    },
+    "model": "ama.subscriber",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "email": "svenjoru@gmail.com",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "email": "michael@elv.technology",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "email": "legoben1998@gmail.com",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "email": "sebastian.vendrig@gmail.com",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 20
+  },
+  {
+    "fields": {
+      "email": "kevincoulthurst@gmail.com",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "email": "thomas@actigrid.no",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 22
+  },
+  {
+    "fields": {
+      "email": "robert.williger@gmail.com",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 23
+  },
+  {
+    "fields": {
+      "email": "nithya1308@gmail.com",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 24
+  },
+  {
+    "fields": {
+      "email": "tombradly@gmail.com",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 25
+  },
+  {
+    "fields": {
+      "email": "deejpark@gmail.com",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 26
+  },
+  {
+    "fields": {
+      "email": "dave@prefixmag.com",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 27
+  },
+  {
+    "fields": {
+      "email": "dt.dragt@gmail.com",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 28
+  },
+  {
+    "fields": {
+      "email": "rick@community-scene.com",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 29
+  },
+  {
+    "fields": {
+      "email": "mattijs@wassenburg.com",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 30
+  },
+  {
+    "fields": {
+      "email": "lazda.kristaps@gmail.com",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 31
+  },
+  {
+    "fields": {
+      "email": "alyssa@heyyo.com",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "email": "kamlesh1089@gmail.com",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 33
+  },
+  {
+    "fields": {
+      "email": "sookbuer@me.com",
+      "host": 2
+    },
+    "model": "ama.subscriber",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "host": "edgebet",
+      "votes": 1
+    },
+    "model": "ama.suggestion",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "host": "good eggs",
+      "votes": 1
+    },
+    "model": "ama.suggestion",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "host": "airbnb",
+      "votes": 1
+    },
+    "model": "ama.suggestion",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "host": "someone with a successful saas business",
+      "votes": 1
+    },
+    "model": "ama.suggestion",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "host": "elon musk",
+      "votes": 4
+    },
+    "model": "ama.suggestion",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "host": "michael tipser om anders lassen i fuse (oslo)",
+      "votes": 2
+    },
+    "model": "ama.suggestion",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "host": "chris doelle @chrisdoelle",
+      "votes": 1
+    },
+    "model": "ama.suggestion",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "host": "martin skow røed",
+      "votes": 1
+    },
+    "model": "ama.suggestion",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "host": "heyyo",
+      "votes": 1
+    },
+    "model": "ama.suggestion",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "host": "heyyo (oisin zimmermann) - on ph today",
+      "votes": 2
+    },
+    "model": "ama.suggestion",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "host": "håkon erichsen",
+      "votes": 2
+    },
+    "model": "ama.suggestion",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "host": "johan brand, norway, ceo of kahoot",
+      "votes": 1
+    },
+    "model": "ama.suggestion",
+    "pk": 12
+  }
+]

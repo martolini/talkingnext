@@ -68,7 +68,7 @@ def push_question_after_creation(sender, instance, created, **kwargs):
 	else:
 		p['h_{}'.format(instance.host_id)].trigger('question_changed', instance.as_json())
 
-post_save.connect(push_question_after_creation, sender=Question)
+# post_save.connect(push_question_after_creation, sender=Question)
 
 class Comment(models.Model):
 	text = models.TextField()
@@ -98,7 +98,7 @@ def push_vote_after_creation(sender, instance, created, **kwargs):
 	if created:
 		p['h_{}'.format(instance.question.host_id)].trigger('new_vote', instance.as_json());
 
-post_save.connect(push_vote_after_creation, sender=Vote)
+# post_save.connect(push_vote_after_creation, sender=Vote)
 
 class Suggestion(models.Model):
 	host = models.CharField(max_length=100)
