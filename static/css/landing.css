@@ -76,11 +76,11 @@
 	background: #f1f1f1;
 }
 
-#feedback, #previous-sessions {
+#feedback, #previous-sessions, #hostsection {
 	background: white;
 }
 
-#feedback h1, #subscribe h1, #about h1, #previous-sessions h1 {
+#feedback h1, #subscribe h1, #about h1, #previous-sessions h1, #hostsection h1 {
 	text-align: center;
 	color: #888;
 	opacity: 0.9;
@@ -144,4 +144,9 @@ input:focus {
     font-family: 'Roboto';
     font-weight: 400;
     opacity: 0.9;
+}
+
+footer {
+	padding-top: 20px;
+	padding-bottom: 20px;
 }

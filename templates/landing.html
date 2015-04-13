@@ -133,22 +133,45 @@
 			</div>
 			<form action="" id="notify-me-form" class="input-wrapper">
 				{% csrf_token %}
-				<input type="email" class="input-email" name="email" placeholder="josh.parker@gmail.com">
-				<input type="submit" class="send-email" value="Notify me!">
+				<input type="email" class="input-email" name="email" placeholder="josh.parker@gmail.com" />
+				<input type="submit" class="send-email" value="Notify me!" />
 			</form>
 		</div>
-		<div class="social row text-center">
-			<a href="http://www.twitter.com/talkingnext_io" target="_blank">
-				<a href="https://twitter.com/talkingnext_io" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @talkingnext_io</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-			</a>
+	</div>
+	<div id="hostsection">
+		<div class="row-padding">
+			<h1>Do <strong>you</strong> want to host a session?</h1>
+			<div class="container-colored-line">
+				<hr class="colored-line">
+				<div class="add-colored-line"></div>
+			</div>
+			<form action="" id="host-session-form" class="input-wrapper">
+				{% csrf_token %}
+				<div class="form-group">
+					<input type="text" class="form-control" name="startup" placeholder="Your startup" />
+				</div>
+				<div class="form-group">
+					<input type="email" class="form-control" name="email" placeholder="josh.parker@gmail.com" />
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Send</button>
+				</div>
+			</form>
 		</div>
-		<p class="text-center text-muted">
-			Talk to us at 
-			<a href="mailto:martin@talkingnext.io">martin@talkingnext.io</a></br>
-		© 2015, talkingnext.io - All rights resered</p>
 	</div>
 </div>
+<footer style="background-color: #f1f1f1;">
+	<div class="social row text-center">
+		<a href="http://www.twitter.com/talkingnext_io" target="_blank">
+			<a href="https://twitter.com/talkingnext_io" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @talkingnext_io</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		</a>
+	</div>
+	<p class="text-center text-muted">
+		Talk to us at 
+		<a href="mailto:martin@talkingnext.io">martin@talkingnext.io</a></br>
+	© 2015, talkingnext.io - All rights resered</p>
+</footer>
 {% endblock %}
 
 {% block scripts %}
@@ -184,9 +207,19 @@
 			});
 		});
 
-		// $('#countdown').countdown('2015/04/01 21:00:00', function(event) {
-		// 	$(this).html(event.strftime("The ama will start in %-H hours, %-M minutes and %-S seconds!"));
-		// });
+		$('#host-session-form').submit(function(e) {
+			e.preventDefault();
+			var formdata = $(this).serializeArray();
+			mixpanel.track('Will host session', {
+				'startup': formdata[1].value,
+				'email': formdata[2].value
+			});
+			var $btn = $(this).find('button');
+			var parent = $btn.parent();
+			$btn.fadeOut(500, function() {
+				parent.html("<p class='text-success'>Awesome! We'll be in touch.");
+			});
+		});
 
 		$('.img-responsive').on('click', function() {
 			mixpanel.track('Clicked Fun Run Image');
