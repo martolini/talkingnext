@@ -15,7 +15,11 @@ class QuestionAdmin(admin.ModelAdmin):
 
 	def toggle_current_question(self, request, queryset):
 		for a in queryset:
-			a.current_question = not a.current_question
+			if a.current_question:
+				a.current_question = False
+				a.answered = True
+			else:
+				a.current_question = True
 			a.save()
 
 	def mark_as_answered(self, request, queryset):
