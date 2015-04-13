@@ -39,10 +39,22 @@ var QuestionList = React.createClass({
 			else voteClass = '';
 			if (question.answered)
 				liClass = " faded";
-			if (question.currentQuestion)
+			var answered = <span />;
+			if (question.currentQuestion) {
+				answered = (
+					<div className="row">
+						<div className="col-xs-12" style={{paddingLeft: '0'}}>
+							<p className="text-success">
+								Current question
+							</p>
+						</div>
+					</div>
+				);
 				liClass = " current-question";
+			}
 			return (
 				<li className={"question-list-item" + liClass} key={question.id}>
+					{ answered }
 					<div className="row">
 						<div className="col-xs-2 col-sm-1 question-img-cell">
 							<img src={question.avatar} className="img-rounded img-responsive" />
