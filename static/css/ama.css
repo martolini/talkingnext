@@ -83,7 +83,7 @@
 }
 
 .question-list li.faded {
-	opacity: 0.3;
+	opacity: 0.5;
 }
 
 .question-list li.current-question {
