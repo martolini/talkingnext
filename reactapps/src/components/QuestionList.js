@@ -6,14 +6,14 @@ var UserStore = require('../stores/UserStore');
 var UserActions = require('../actions/UserActions');
 
 var QuestionList = React.createClass({
-	mixins: [Reflux.connect(QuestionStore, "questions")],
+	mixins: [Reflux.connect(QuestionStore, "questions"), Reflux.connect(UserStore, "authenticated")],
 
 	componentDidMount: function() {
 		QuestionActions.getInitialData();
 	},
 
 	onVote: function(question) {
-		if (!UserStore.isAuthenticated()) {
+		if (!this.state.authenticated) {
 			doLogin(function(profile) {
 				UserActions.authenticatedUser(profile);
 			});
@@ -25,7 +25,8 @@ var QuestionList = React.createClass({
 
 	getInitialState: function() {
 		return {
-			questions : []
+			questions : [],
+			authenticated: false,
 		};
 	},
 

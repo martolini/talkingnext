@@ -23,7 +23,7 @@
 	<link rel="stylesheet" href="{% static 'css/base.css' %}">
 		 
 	<!-- Favicon -->
-	<link rel="icon" type="image/png" href="img/favicon.png">
+	<link rel="shortcut icon" href="http://faviconist.com/icons/7caf13c280e86a4d324c9d233fba1bee/favicon.ico" />
 
 	<!-- Linking to online google font Roboto -->
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -78,7 +78,7 @@ s0.parentNode.insertBefore(s1,s0);
 						mixpanel.alias(profile.id);
 					}
 					else {
-						mixpanel.identify(data.content.id);
+						mixpanel.identify(profile.id);
 					}
 					success(data.content);
 				}

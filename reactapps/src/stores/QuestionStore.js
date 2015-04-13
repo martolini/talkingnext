@@ -6,6 +6,7 @@ var QuestionUtils = require('../utils/QuestionUtils');
 
 var _questions = {};
 var _hostId = null;
+var _authenticated = false;
 
 function _getQuestionList() {
 	var questions = [];
@@ -25,6 +26,19 @@ function _getQuestionList() {
 
 var QuestionStore = Reflux.createStore({
 	listenables: QuestionActions,
+
+	init: function() {
+		this.listenTo(UserStore, "onUserStoreChanged");
+	},
+
+	onUserStoreChanged: function(authenticated) {
+		console.log('changed');
+		if (_authenticated != authenticated) {
+			// this.trigger(_getQuestionList());
+			_authenticated = authenticated;
+		}
+
+	},
 
 	onPostQuestion: function(text) {
 		mixpanel.people.increment("Questions asked");

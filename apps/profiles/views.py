@@ -12,4 +12,5 @@ def profile_view(request):
 		profile = request.user
 		profile.email = request.POST.get('email', '')
 		profile.save()
+		return redirect('/')
 	return render(request, 'profiles/profile.html', {'profile': request.user})

@@ -19,7 +19,7 @@ var QuestionInput = React.createClass({
 	},
 
 	_onSubmit: function() {
-		if (!this.props.authenticated) {
+		if (!UserStore.isAuthenticated()) {
 			doLogin(function(profile) {
 				UserActions.authenticatedUser(profile);
 			});
