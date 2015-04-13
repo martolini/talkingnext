@@ -6,7 +6,7 @@ from django.db.models import Count
 def ama_view(request, startup):
 	if not Host.objects.filter(startup__iexact=startup):
 		return ama_route(request)
-	return render(request, 'ama/ama.html')
+	return render(request, 'ama/ama.html', {'host': Host.objects.get(startup__iexact=startup)})
 
 
 from django.views.decorators.csrf import ensure_csrf_cookie

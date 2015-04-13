@@ -45,7 +45,6 @@ mixpanel.init("ed07db27d3f7ffb3fc27aa3b4673f67e");</script><!-- end Mixpanel -->
 		$(function() {
 			if ('{{ user.is_authenticated }}' == 'True') {
 				mixpanel.identify('{{user.twitter_id}}');
-				console.log("Identified with {{ user.twitter_id }}");
 			}
 		});
 	</script>
