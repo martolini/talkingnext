@@ -36,7 +36,7 @@ class ProfileAdmin(UserAdmin):
 	# The fields to be used in displaying the User model.
 	# These override the definitions on the base UserAdmin
 	# that reference specific fields on auth.User.
-	list_display = ('id', 'screen_name')
+	list_display = ('twitter_id', 'screen_name')
 	list_filter = ('is_superuser','is_staff')
 	fieldsets = (
 		(None, {'fields': ('twitter_id', 'email', 'password', 'screen_name')}),
@@ -46,7 +46,7 @@ class ProfileAdmin(UserAdmin):
 	add_fieldsets = (
 		(None, {
 			'classes': ('wide',),
-			'fields': ('id', 'password', 'screen_name')}
+			'fields': ('twitter_id', 'password', 'screen_name')}
 		),
 	)
 	search_fields = ('email',)
