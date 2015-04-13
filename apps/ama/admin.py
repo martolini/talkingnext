@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Host, Question, Subscriber, Suggestion, Vote
+from django.db.models import F
 
 @admin.register(Subscriber)
 class SubscriberAdmin(admin.ModelAdmin):
@@ -11,8 +12,18 @@ class HostAdmin(admin.ModelAdmin):
 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
-	list_display = ('id', 'short_text', 'host', 'current_question', 'author' ,'votes_count')
+
+	def toggle_current_question(self, request, queryset):
+		for a in queryset:
+			a.current_question = not a.current_question
+			a.save()
+
+	def mark_as_answered(self, request, queryset):
+		queryset.update(answered=True)
+
+	list_display = ('short_text', 'host', 'current_question', 'answered', 'author' ,'votes_count')
 	list_filter = ('host__startup',)
+	actions = (toggle_current_question, mark_as_answered)
 
 @admin.register(Suggestion)
 class SuggestionAdmin(admin.ModelAdmin):
