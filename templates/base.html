@@ -44,7 +44,8 @@ mixpanel.init("ed07db27d3f7ffb3fc27aa3b4673f67e");</script><!-- end Mixpanel -->
 	<script>
 		$(function() {
 			if ('{{ user.is_authenticated }}' == 'True') {
-				mixpanel.identify('{{user.pk}}');
+				mixpanel.identify('{{user.twitter_id}}');
+				console.log("Identified with {{ user.twitter_id }}");
 			}
 		});
 	</script>
@@ -72,11 +73,14 @@ s0.parentNode.insertBefore(s1,s0);
 			$.post("/ajax/login/", {twitter_id: profile.id, screen_name: profile.screen_name, avatar: profile.thumbnail.replace('normal', 'bigger')}, function(data) {
 				if (data.content.authenticated) {
 					if (data.content.created) {
-						mixpanel.alias(data.content.id);
 						mixpanel.people.set({
-							'$name': profile.screen_name,
-							'$created': new Date(),
+							$name: profile.screen_name,
+							$created: new Date(),
 						});
+						mixpanel.alias(profile.id);
+					}
+					else {
+						mixpanel.identify(data.content.id);
 					}
 					success(data.content);
 				}
