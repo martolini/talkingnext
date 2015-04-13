@@ -27,19 +27,6 @@ function _getQuestionList() {
 var QuestionStore = Reflux.createStore({
 	listenables: QuestionActions,
 
-	init: function() {
-		this.listenTo(UserStore, "onUserStoreChanged");
-	},
-
-	onUserStoreChanged: function(authenticated) {
-		console.log('changed');
-		if (_authenticated != authenticated) {
-			// this.trigger(_getQuestionList());
-			_authenticated = authenticated;
-		}
-
-	},
-
 	onPostQuestion: function(text) {
 		mixpanel.people.increment("Questions asked");
 		$.post('/ajax/questions/', {'text': text, 'host_id': _hostId});

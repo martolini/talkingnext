@@ -33,25 +33,24 @@ var QuestionList = React.createClass({
 	render: function() {
 		var self = this;
 		var questions = this.state.questions.map(function(question, i) {
+			var liClass = "";
 			if (question.votes.indexOf(UserStore.getUserId()) > -1)
 				var voteClass = ' green';
 			else voteClass = '';
 			if (question.answered)
-				var rowClass = ' faded';
-			else var rowClass = '';
+				liClass = " faded";
 			if (question.currentQuestion)
-				var textClass = " text-success";
-			else var textClass = '';
+				liClass = " current-question";
 			return (
-				<li className="question-list-item" key={question.id}>
-					<div className={"row" + rowClass} >
+				<li className={"question-list-item" + liClass} key={question.id}>
+					<div className="row">
 						<div className="col-xs-2 col-sm-1 question-img-cell">
 							<img src={question.avatar} className="img-rounded img-responsive" />
 						</div>
 						<div className="col-xs-9 col-sm-10 question-body-cell">
 							<div className="question-header"><a href={"http://twitter.com/" + question.author} target="_blank">@{ question.author }</a></div>
 							<div className="question-body">
-								<p className={"question-text" + textClass}>{ question.text }</p>
+								<p className="question-text">{ question.text }</p>
 							</div>
 						</div>
 						<div className="col-xs-1">

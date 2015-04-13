@@ -82,6 +82,15 @@
 	border-bottom: 1px dotted #B3A9A9;
 }
 
+.question-list li.faded {
+	opacity: 0.3;
+}
+
+.question-list li.current-question {
+	color: green;
+	border-bottom: 1px solid black;
+}
+
 .question-list {
 	color: #777;
 	padding-left: 5px;
@@ -109,6 +118,10 @@ em.description {
 	color: #3498db;
 	font-size: 2rem;
 	margin-bottom: 5px;
+}
+
+.question-list i.green {
+	color: green;
 }
 
 .vote-up {
@@ -152,25 +165,4 @@ em.description {
 		width: 640px;
 		height: 379px;
 	}
-}
-
-.question-list-item-enter {
-	opacity: 0.01;
-	transition: opacity .5s ease-in;
-}
-
-.question-list-item-enter-active {
-	opacity: 1;
-}
-
-.green {
-	color: green !important;
-}
-
-.faded {
-	opacity: 0.3;
-}
-
-.bordered {
-	border: 2px solid black !important;
 }
