@@ -47,7 +47,7 @@
 {% block scripts %}
 <script>
 	$(function() {
-		mixpanel.track('Past session {{ host.name }}');
+		mixpanel.track('Past session', {'Startup': '{{ host.startup }}'});
 	});
 </script>
 {% endblock %}
