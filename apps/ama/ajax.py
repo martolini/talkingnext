@@ -8,13 +8,20 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 @ajax
 def questions_view(request):
 	if request.POST:
-		text = request.POST.get('text')
-		host_id = request.POST.get('host_id')
-		try:
-			q = Question.objects.create(author=request.user, text=text, host_id=host_id)
-		except Exception, e:
-			import traceback; traceback.print_exc();
-		return {}
+		question_id = request.POST.get('question_id', None)
+		if question_id:
+			q = Question.objects.get(id=question_id)
+			q.text = request.POST.get('text');
+			q.save()
+			return {}
+		else:
+			text = request.POST.get('text')
+			host_id = request.POST.get('host_id')
+			try:
+				q = Question.objects.create(author=request.user, text=text, host_id=host_id)
+			except Exception, e:
+				import traceback; traceback.print_exc();
+			return {}
 	if request.user.is_authenticated():
 		screen_name = request.user.screen_name;
 	else:
@@ -38,6 +45,11 @@ def subscribe_view(request):
 @ajax
 def vote_question_view(request):
 	vote, created = Vote.objects.get_or_create(question_id=request.POST.get('question_id'), profile_id=request.user.id)
+	return {'success': True}
+
+@ajax
+def unvote_question_view(request):
+	Vote.objects.get(question_id=request.POST.get('question_id'), profile_id=request.POST.get('profile_id')).delete()
 	return {'success': True}
 
 @ajax

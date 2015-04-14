@@ -1,6 +1,6 @@
 from django.db import models
 from apps.profiles.models import Profile
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, pre_delete
 from django.db.models import F
 import time
 import json
@@ -96,9 +96,14 @@ class Vote(models.Model):
 
 def push_vote_after_creation(sender, instance, created, **kwargs):
 	if created:
-		p['h_{}'.format(instance.question.host_id)].trigger('new_vote', instance.as_json());
+		p['h_{}'.format(instance.question.host_id)].trigger('new_vote', instance.as_json())
+
+def push_vote_after_delete(sender, instance, **kwargs):
+	p['h_{}'.format(instance.question.host_id)].trigger('deleted_vote', instance.as_json())
 
 post_save.connect(push_vote_after_creation, sender=Vote)
+pre_delete.connect(push_vote_after_delete, sender=Vote)
+
 
 class Suggestion(models.Model):
 	host = models.CharField(max_length=100)

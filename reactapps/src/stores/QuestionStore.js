@@ -33,11 +33,15 @@ var QuestionStore = Reflux.createStore({
 	},
 
 	onVoteQuestion: function(question) {
-		_questions[question.id].hasVoted = true;
 		_questions[question.id].votes.push(UserStore.getUserId());
-		_questions[question.id].votesCount += 1;
 		this.trigger(_getQuestionList());
 		$.post('/ajax/vote_question/', {'question_id': question.id});
+	},
+
+	onUnVoteQuestion: function(question) {
+		_questions[question.id].votes.splice(_questions[question.id].votes.indexOf(UserStore.getUserId()), 1);
+		this.trigger(_getQuestionList());
+		$.post('/ajax/unvote_question/', {'question_id': question.id, 'profile_id': UserStore.getUserId()});
 	},
 
 	onNewQuestion: function(question) {
@@ -46,10 +50,22 @@ var QuestionStore = Reflux.createStore({
 		this.trigger(_getQuestionList());
 	},
 
+	onEditQuestion: function(questionId, text) {
+		_questions[questionId].text = text;
+		$.post('/ajax/questions/', {'question_id': questionId, 'text': text});
+	},
+
 	onNewVote: function(vote) {
 		if (vote.profile_id != UserStore.getUserId()) {
 			_questions[vote.question_id].votes.push(vote.profile_id);
-			_questions[vote.question_id].votesCount++;
+			this.trigger(_getQuestionList());
+		}
+	},
+
+	onDeletetedVote: function(vote) {
+		votes = _questions[vote.question_id].votes;
+		if (vote.profile_id != UserStore.getUserId()) {
+			var removed = votes.splice(votes.indexOf(vote.profile_id), 1);
 			this.trigger(_getQuestionList());
 		}
 	},
@@ -77,6 +93,7 @@ var QuestionStore = Reflux.createStore({
 			questionchannel = pusher.subscribe('h_' + _hostId);
 			questionchannel.bind('new_question', self.onNewQuestion);
 			questionchannel.bind('new_vote', self.onNewVote);
+			questionchannel.bind('deleted_vote', self.onDeletetedVote);
 			questionchannel.bind('question_changed', self.onQuestionChanged);
 		});
 	}

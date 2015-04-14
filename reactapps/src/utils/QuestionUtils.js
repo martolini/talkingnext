@@ -10,7 +10,6 @@ module.exports = {
 			avatar: rawQuestion.avatar,
 			answered: rawQuestion.answered,
 			votes: votes,
-			votesCount: votes.length,
 			text: rawQuestion.text,
 			currentQuestion: rawQuestion.current_question
 		}
