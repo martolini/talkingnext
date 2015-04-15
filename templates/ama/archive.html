@@ -29,6 +29,9 @@
 										<p class="description">
 											{{ host.description }}
 										</p>
+										<p class="text-muted">
+											{{ host.time }}
+										</p>
 										<a class="btn btn-primary btn-lg" href="{% url 'past_session' host.startup|lower %}">Watch session</a>
 									</div>
 								</div>
