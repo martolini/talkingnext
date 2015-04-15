@@ -101,7 +101,7 @@ AUTH_USER_MODEL = 'profiles.Profile'
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": os.environ.get('REDIS_URL', 'redis://localhost:6379/10'),
+        "LOCATION": os.environ.get('REDIS_URL', ''),
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
