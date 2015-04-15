@@ -1,6 +1,7 @@
 dj-database-url==0.3.0
 dj-static==0.0.6
 Django==1.7.6
+django-redis==3.8.3
 django-toolbelt==0.0.1
 djangoajax==2.2.15
 gunicorn==19.3.0
@@ -9,7 +10,7 @@ newrelic==2.50.0.39
 oauth2==1.5.211
 psycopg2==2.6
 pusher==0.8
-python-memcached==1.54
+redis==2.10.3
 six==1.9.0
 static3==0.5.1
 waitress==0.8.9
