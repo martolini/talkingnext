@@ -9,6 +9,8 @@ newrelic==2.50.0.39
 oauth2==1.5.211
 psycopg2==2.6
 pusher==0.8
+python-memcached==1.54
+six==1.9.0
 static3==0.5.1
 waitress==0.8.9
 whitenoise==1.0.6
