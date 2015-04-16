@@ -36,14 +36,15 @@
 					</div>
 					<div class="row">
 						<a href="{% url 'talking_next_is' %}" class="btn btn-cta btn-lg">Join the AMA</a>
-						<div title="Add to Calendar" class="addthisevent">
+						<div title="Add to Calendar" class="addthisevent" >
 							Add to Calendar
 							<span class="start">16/04/2015 09:00 PM</span>
 							<span class="end">16/04/2015 09:30 PM</span>
-							<span class="timezone">Europe/Paris</span>
+							<span class="timezone">Europe/Oslo</span>
 							<span class="title">Fortified Bicycle is talkingnext.io</span>
-							<span class="description">Ask Tivan about launching a successful kickstart campagn</span>
-							<span class="location">talkingnext.io</span>
+							<span class="description">Ask Tivan about launching a successful kickstart campagn. Tune in at http://talkingnext.io/is/fortifiedbike/</span>
+							<span class="location">http://talkingnext.io/is/fortifiedbike/</span>
+							<span class="facebook_event">https://www.facebook.com/events/747990071989167/</span>
 							<span class="organizer">Fortified Bicycle and talkingnext</span>
 							<span class="organizer_email">martin@talkingnext.io</span>
 							<span class="date_format">MM/DD/YYYY</span>
@@ -186,12 +187,23 @@
 <script type="text/javascript" src="https://addthisevent.com/libs/1.6.0/ate.min.js"></script>
 <script type="text/javascript" src="{% static 'js/jquery.countdown.min.js' %}"></script>
 <script>
+
+	function addEventCallback() {
+		mixpanel.track('Added to calendar');
+	}
+
 	$(function() {
 		addthisevent.settings({
 			css: true,
-			google : {show:true, text:"Google Calendar"},
+			license: "al2unnup8zhmsykd0me41195",
+			google: {show:true, text:"Google Calendar"},
+			appleical: {show:true, text:"Apple iCalendar"},
+			facebook: {show:true, text:"Facebook Event"},
+			dropdown: {order:"google,appleical,facebook"},
+			callback: ["addEventCallback()",]
 		});
 		mixpanel.track('Landing page')
+
 		$('.talking-next-form').submit(function(e) {
 			e.preventDefault();
 			$.post('/ajax/talkingnext/', $(this).serializeArray(), function(data) {
