@@ -80,7 +80,8 @@ var QuestionItem = React.createClass({
 		}
 
 		return (
-			<li className="question-list-item">
+			<li className={"question-list-item" + liClass}>
+				{ answered }
 				<div className="row">
 					<div className="col-xs-2 col-sm-1 question-img-cell">
 						<img src={this.props.question.avatar} className="img-rounded img-responsive" />
