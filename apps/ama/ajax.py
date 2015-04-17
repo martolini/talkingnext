@@ -26,7 +26,7 @@ def questions_view(request):
 		screen_name = request.user.screen_name;
 	else:
 		screen_name = None
-	host = Host.objects.get(is_current=True)
+	host = Host.get_current_host()
 	return {'questions': host.get_all_questions(), 'screen_name': screen_name, 'host_id': host.pk, 'id': request.user.id }
 
 @ajax

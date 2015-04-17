@@ -6,9 +6,10 @@ from apps.ama.ajax import questions_view, save_spot_view, subscribe_view, vote_q
 from apps.ama.views import ama_view, ama_route, archive_view, past_session_view
 from apps.profiles.ajax import create_or_login_view
 from apps.profiles.views import login_view, profile_view
+from apps.landing.views import landing_view
 
 urlpatterns = patterns('',
-    url(r'^$', TemplateView.as_view(template_name='landing.html'), name="landing"),
+    url(r'^$', landing_view, name="landing"),
     url(r'^is/$', ama_route, name='talking_next_is'),
     url(r'^is/(?P<startup>\w+)/$', ama_view),
     url(r'^ajax/questions/$', questions_view),

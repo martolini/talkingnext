@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load tz %}
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/ama.css' %}">
@@ -14,14 +15,16 @@
 		<div class="row">
 			<div title="Add to Calendar" class="addthisevent" >
 				Add to Calendar
-				<span class="start">16/04/2015 09:00 PM</span>
-				<span class="end">16/04/2015 09:30 PM</span>
+				<span class="start">{{ host.start_time|timezone:"Europe/Oslo"|date:"d/m/Y h:i A" }}</span>
+				<span class="end">{{ host.end_time|timezone:"Europe/Oslo"|date:"d/m/Y h:i A" }}</span>
 				<span class="timezone">Europe/Oslo</span>
-				<span class="title">Fortified Bicycle is talkingnext.io</span>
-				<span class="description">Ask Tivan about launching a successful kickstart campagn. Tune in at http://talkingnext.io/is/fortifiedbike/</span>
-				<span class="location">http://talkingnext.io/is/fortifiedbike/</span>
-				<span class="facebook_event">https://www.facebook.com/events/747990071989167/</span>
-				<span class="organizer">Fortified Bicycle and talkingnext</span>
+				<span class="title">{{ host.startup }} is talkingnext.io</span>
+				<span class="description">{{ host.name }} is talking about {{ host.title }}. Tune in at http://talkingnext/is/{{ host.startup }}</span>
+				<span class="location">http://talkingnext.io/</span>
+				{% if host.facebook_event_url %}
+					<span class="facebook_event">{{ host.facebook_event_url }}</span>
+				{% endif %}
+				<span class="organizer">{{ host.startup }} and talkingnext</span>
 				<span class="organizer_email">martin@talkingnext.io</span>
 				<span class="date_format">MM/DD/YYYY</span>
 			</div>

@@ -27,10 +27,10 @@
 									<div class="col-xs-9">
 										<h1>{{ host.title }}</h1>
 										<p class="description">
-											{{ host.description }}
+											{{ host.post_description }}
 										</p>
 										<p class="text-muted">
-											{{ host.time }}
+											{{ host.start_time }}
 										</p>
 										<a class="btn btn-primary btn-lg" href="{% url 'past_session' host.startup|lower %}">Watch session</a>
 									</div>

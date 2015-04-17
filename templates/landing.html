@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load tz %}
 {% block head %}
 	<link rel="stylesheet" href="{% static 'css/landing.css' %}">
 {% endblock %}
@@ -16,64 +17,61 @@
 				</p>
 			</div>
 			<div class="row">
-				<div class="col-xs-6 col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-2 col-lg-3 col-lg-offset-2 col-xs-6" style="padding-top: 25px">
-					{% comment %}
-					<img src="{% static 'img/featuring/fortified.jpg' %}" class="img-responsive pull-right" alt="Fortified Bicycle - Tivan">
-					{% endcomment %}
-					<iframe class="pull-right" height="250" width="333" src="https://www.youtube.com/embed/4GrPmQWxzlk?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-				</div>
-				<div class="col-sm-7 col-xs-12">
-					<div class="row">
-						<h5 class="event-title"><span>Next session:</span> Launching a successful kickstarter campaign</h5>
+				{% if current.is_current %}
+					<div class="col-xs-6 col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-2 col-lg-3 col-lg-offset-2 col-xs-6" style="padding-top: 25px">
+						<iframe class="pull-right" height="250" width="333" src="https://www.youtube.com/embed/4GrPmQWxzlk?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 					</div>
-					<div class="row">
-						<h5 style="width: 60%" class="">Founder of <strong><a href="http://fortifiedbike.com" style="color: white;" target="_blank">Fortified Bicycle</a></strong>, Tivan Amour, has some great insight on kickstarter campaigns.<br />
-						1st campaign: pledged for <strong>$18 000</strong>, got <strong>$84 728</strong>.<br />
-						2nd campaign: pledged for <strong>$24 000</strong>, got <strong>$177 266</strong>.<br />
-						3rd and running: pledged for <strong>$8000</strong>, already received <strong>$13 395</strong> with 48 days to go.<br />
-						Check it out <a style="color: white;" href="https://www.kickstarter.com/projects/gotham/fortified-we-caught-a-bike-thief-this-is-payback" target="_blank"><strong>here</strong></a></br>
-						<strong>April 16th, 3PM EST / 7PM GMT</strong></h5>
-					</div>
-					<div class="row">
-						<a href="{% url 'talking_next_is' %}" class="btn btn-cta btn-lg">Join the AMA</a>
-						<div title="Add to Calendar" class="addthisevent" >
-							Add to Calendar
-							<span class="start">16/04/2015 09:00 PM</span>
-							<span class="end">16/04/2015 09:30 PM</span>
-							<span class="timezone">Europe/Oslo</span>
-							<span class="title">Fortified Bicycle is talkingnext.io</span>
-							<span class="description">Ask Tivan about launching a successful kickstart campagn. Tune in at http://talkingnext.io/is/fortifiedbike/</span>
-							<span class="location">http://talkingnext.io/is/fortifiedbike/</span>
-							<span class="facebook_event">https://www.facebook.com/events/747990071989167/</span>
-							<span class="organizer">Fortified Bicycle and talkingnext</span>
-							<span class="organizer_email">martin@talkingnext.io</span>
-							<span class="date_format">MM/DD/YYYY</span>
+					<div class="col-sm-7 col-xs-12">
+						<div class="row">
+							<h5 class="event-title"><span>Next session:</span> {{ current.title }}</h5>
 						</div>
-					</div>
-					{% comment %}
-					<div class="row">
-						<div class="col-xs-2 col-xs-offset-5 col-md-2 col-md-offset-5">
-							<img src="{% static 'img/featuring/marius.jpg' %}" class="img-rounded img-responsive" alt="" />
+						<div class="row">
+							<h5 style="width: 60%" class="">{{ current.pre_description }}</br>
+							<strong>{{ current.start_time|utc }} UTC</strong></br>
+							<strong>{{ current.start_time|timezone:"US/Eastern" }} EST</br>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<p class="subtext">Who should be talking next?</p>
+						<div class="row">
+							<a href="{% url 'talking_next_is' %}" class="btn btn-cta btn-lg">Join the AMA</a>
+							<div title="Add to Calendar" class="addthisevent" >
+								Add to Calendar
+								<span class="start">{{ current.start_time|timezone:"Europe/Oslo"|date:"d/m/Y h:i A" }}</span>
+								<span class="end">{{ current.end_time|timezone:"Europe/Oslo"|date:"d/m/Y h:i A" }}</span>
+								<span class="timezone">Europe/Oslo</span>
+								<span class="title">{{ current.startup }} is talkingnext.io</span>
+								<span class="description">{{ current.name }} is talking about {{ current.title }}. Tune in at http://talkingnext/is/{{ current.startup }}</span>
+								<span class="location">http://talkingnext.io/</span>
+								{% if current.facebook_event_url %}
+									<span class="facebook_event">{{ current.facebook_event_url }}</span>
+								{% endif %}
+								<span class="organizer">{{ current.startup }} and talkingnext</span>
+								<span class="organizer_email">martin@talkingnext.io</span>
+								<span class="date_format">MM/DD/YYYY</span>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-12">
-							<form action="" class="input-wrapper talking-next-form">
-								{% csrf_token %}
-								<input type="text" class="input-startup" placeholder="Airbnb" name="host"/>
-								<input type="submit" class="send-startup" value="Send" />
-							</form>
+					{% else %}
+						<div class="row">
+							<div class="col-xs-2 col-xs-offset-5 col-md-2 col-md-offset-5">
+								<img src="{% static 'img/featuring/marius.jpg' %}" class="img-rounded img-responsive" alt="" />
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<p class="subtext text-center text-success" style="display: none;">We're on it! Leave your email so we can notify you!</p>
-					</div>
-					{% endcomment %}
+						<div class="row">
+							<div class="col-sm-12">
+								<p class="subtext">Who should be talking next?</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<form action="" class="input-wrapper talking-next-form">
+									{% csrf_token %}
+									<input type="text" class="input-startup" placeholder="Airbnb" name="host"/>
+									<input type="submit" class="send-startup" value="Send" />
+								</form>
+							</div>
+						</div>
+						<div class="row">
+							<p class="subtext text-center text-success" style="display: none;">We're on it! Leave your email so we can notify you!</p>
+						</div>
+					{% endif %}
 				</div>
 			</div>
 		</div>
@@ -88,11 +86,11 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-3 col-xs-offset-1 col-md-2 col-md-offset-3">
-					<img src="{% static 'img/featuring/rajsingh.png' %}" alt="" class="img-responsive img-rounded" />
+					<img src="{{ previous.image_url }}" alt="" class="img-responsive img-rounded" />
 				</div>
 				<div class="col-xs-8 col-md-6">
 					<p class="description">
-						Founder of Dronecast, Raj Singh, dropped out of school to pursue his dream. Dronecast has already become a million dollar company in less than one year. There were awesome questions, and awesome answers.
+						{{ previous.description }}
 					</p>
 					<a href="{% url 'archive' %}" class="btn btn-primary btn-lg">View past sessions</a>
 				</div>

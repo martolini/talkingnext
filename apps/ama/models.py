@@ -8,18 +8,32 @@ import json
 class Host(models.Model):
 	name = models.CharField(max_length=50)
 	startup = models.CharField(max_length=50, blank=True, null=True)
-	time = models.DateTimeField(blank=True, null=True)
+	start_time = models.DateTimeField(blank=True, null=True)
+	end_time = models.DateTimeField(blank=True, null=True)
 	is_current = models.BooleanField(default=False)
 	title = models.CharField(max_length=200)
 	video_url = models.URLField(blank=True, null=True)
 	image_url = models.URLField(blank=True, null=True)
-	description = models.TextField(blank=True, null=True)
+	pre_description = models.TextField(blank=True, null=True)
+	post_description = models.TextField(blank=True, null=True)
+	facebook_event_url = models.URLField(blank=True, null=True)
 
 	def get_all_questions(self):
 		return [question.as_json() for question in self.questions.all().select_related('author')]
 
 	def get_absolute_url(self):
 		return '/is/%s' % self.startup.lower()
+
+	@classmethod
+	def get_current_host(cls):
+		try:
+			return cls.objects.get(is_current=True)
+		except cls.DoesNotExist:
+			return cls.objects.latest('start_time')
+
+	@classmethod
+	def get_previous_host(cls):
+		return cls.objects.exclude(is_current=True).latest('start_time')
 
 	def __unicode__(self):
 		return self.name

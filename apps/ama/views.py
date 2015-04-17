@@ -8,17 +8,16 @@ def ama_view(request, startup):
 		return ama_route(request)
 	return render(request, 'ama/ama.html', {'host': Host.objects.get(startup__iexact=startup)})
 
-
 from django.views.decorators.csrf import ensure_csrf_cookie
 
 @ensure_csrf_cookie
 def ama_route(request):
-	host = Host.objects.get(is_current=True)
+	host = Host.get_current_host()
 	return redirect(host)
 
 @login_required
 def archive_view(request):
-	return render(request, 'ama/archive.html', {'hosts': Host.objects.filter(is_current=False)})
+	return render(request, 'ama/archive.html', {'hosts': Host.objects.filter(is_current=False).order_by('-start_time')})
 
 @login_required
 def past_session_view(request, startup):
