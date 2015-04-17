@@ -22,19 +22,23 @@
 				<div class="col-md-8 col-md-offset-2">
 					<div class="panel panel-default">
 						<div class="panel-body">
-							{% for question in questions %}
-								<div class="row">
-									<div class="col-xs-1">
-										<span class="icon">
-											<i class="fa fa-fw fa-thumbs-up"></i>
-										</span>
-										<span class="vote">{{ question.votes_count }}</span>
-									</div>
-									<div class="col-xs-11">
-										<p class="description">{{ question.text }}</p>
-									</div>
-								</div>
-							{% endfor %}
+							<ul class="list-group">
+								{% for question in questions %}
+									<li class="list-group-item">
+										<div class="row">
+											<div class="col-xs-1">
+												<span class="icon">
+													<i class="fa fa-fw fa-thumbs-up"></i>
+												</span>
+												<span class="vote">{{ question.votes_count }}</span>
+											</div>
+											<div class="col-xs-11">
+												<p class="description">{{ question.text }}</p>
+											</div>
+										</div>
+									</li>
+								{% endfor %}
+							</ul>
 						</div>
 					</div>
 				</div>
