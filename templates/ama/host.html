@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/host.css' %}">
+{% endblock %}
+
+{% block body %}
+{% include "navigation.html" %}
+<div style="margin-top: 75px;" class="container-fluid">
+	<div class="row">
+		<div class="col-xs-6">
+			<div class="panel panel-default" style="background-color: #f1f1f1">
+				<div class="panel-body">
+					<h1 class="title">Incoming questions</h1>
+					<div class="container-colored-line">
+						<hr class="colored-line" />
+						<div class="add-colored-line"></div>
+					</div>
+					<ul class="question-list list-group" style="list-style: none;">
+						<li class="question-list-item list-group-item" style="background-color: #f1f1f1">
+							<div class="row">
+								<div class="col-sm-1">
+									<i class="fa fa-3x fa-check"></i>
+								</div>
+								<div class="col-sm-10">
+									<div>@martolini</div>
+									<div class="question-body">
+										Hello everyone, I love you all! Thank you fans!
+									</div>
+								</div>
+								<div class="col-sm-1">
+									<div class="fa fa-3x fa-star"></div>
+								</div>
+							</div>
+						</li>
+						<li class="question-list-item list-group-item" style="background-color: #f1f1f1">
+							<div class="row">
+								<div class="col-sm-1">
+									<i class="fa fa-3x fa-check"></i>
+								</div>
+								<div class="col-sm-10">
+									<div>@martolini</div>
+									<div class="question-body">
+										Hello everyone, I love you all! Thank you fans!
+									</div>
+								</div>
+								<div class="col-sm-1">
+									<div class="fa fa-3x fa-star"></div>
+								</div>
+							</div>
+						</li>
+						<li class="question-list-item list-group-item" style="background-color: #f1f1f1">
+							<div class="row">
+								<div class="col-sm-1">
+									<i class="fa fa-3x fa-check"></i>
+								</div>
+								<div class="col-sm-10">
+									<div>@martolini</div>
+									<div class="question-body">
+										Hello everyone, I love you all! Thank you fans!
+									</div>
+								</div>
+								<div class="col-sm-1">
+									<div class="fa fa-3x fa-star"></div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-6">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h1 class="title">Want to answer</h1>
+							<div class="container-colored-line">
+								<hr class="colored-line" />
+								<div class="add-colored-line"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h1 class="title">Answered questions</h1>
+							<div class="container-colored-line">
+								<hr class="colored-line" />
+								<div class="add-colored-line"></div>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+	$(function() {
+	});
+</script>
+{% endblock %}

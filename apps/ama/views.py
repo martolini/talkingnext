@@ -28,3 +28,7 @@ def past_session_view(request, startup):
 	return render(request, 'ama/past_session.html', {
 		'host': host,
 		'questions': host.questions.all().annotate(num_votes=Count('votes')).order_by('-num_votes')})
+
+@login_required
+def host_view(request):
+	return render(request, 'ama/host.html', {'host': Host.get_current_host()})
