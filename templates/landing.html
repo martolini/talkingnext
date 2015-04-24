@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load tz %}
+{% load markdown_deux_tags %}
 {% block head %}
 	<link rel="stylesheet" href="{% static 'css/landing.css' %}">
 {% endblock %}
@@ -19,16 +20,18 @@
 			<div class="row">
 				{% if current.is_current %}
 					<div class="col-xs-6 col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-2 col-lg-3 col-lg-offset-2 col-xs-6" style="padding-top: 25px">
-						<iframe class="pull-right" height="250" width="333" src="https://www.youtube.com/embed/4GrPmQWxzlk?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+						<iframe class="pull-right" height="250" width="333" src="{{ current.video_url }}" frameborder="0" allowfullscreen></iframe>
 					</div>
 					<div class="col-sm-7 col-xs-12">
 						<div class="row">
 							<h5 class="event-title"><span>Next session:</span> {{ current.title }}</h5>
 						</div>
 						<div class="row">
-							<h5 style="width: 60%" class="">{{ current.pre_description }}</br>
+							<h5 style="width: 60%" class="">
+								{{ current.pre_description|markdown }}
+							</br>
 							<strong>{{ current.start_time|utc }} UTC</strong></br>
-							<strong>{{ current.start_time|timezone:"US/Eastern" }} EST</br>
+							<strong>{{ current.start_time|timezone:"US/Eastern" }} EST</br></h5>
 						</div>
 						<div class="row">
 							<a href="{% url 'talking_next_is' %}" class="btn btn-cta btn-lg">Join the AMA</a>

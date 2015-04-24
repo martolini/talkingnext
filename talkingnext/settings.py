@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'apps.profiles',
 
     'django_ajax',
+    'markdown_deux',
 )
 
 MIDDLEWARE_CLASSES = (
