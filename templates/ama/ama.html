@@ -10,7 +10,7 @@
 <div class="row" id="content">
 	<div class="col-md-6 text-center" id="ama">
 		<iframe id="amaframe" class="center-block" src="{{ host.video_url }}" style="border: 0 none transparent; left: 0"  webkitallowfullscreen allowfullscreen frameborder="no" width="640" height="379"></iframe>
-		<h1><a href="{% url 'landing' %}"><strong>Talking next</strong></a> is {{ host.name }} from <a href="http://fortifiedbike.com" target="_blank">{{ host.startup }}</a></h1>
+		<h1><a href="{% url 'landing' %}"><strong>Talking next</strong></a> is {{ host.name }} from {{ host.startup }}</h1>
 		<h5>{{ host.title }}<br/>
 			{{ host.start_time|utc }} UTC</br>
 			{{ host.start_time|timezone:"US/Eastern" }} EDT</br></h5>
