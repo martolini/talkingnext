@@ -11,4 +11,5 @@ module.exports = Reflux.createActions([
 	'newVote',
 	'deleteVote',
 	'unAnswerQuestion',
+	'currentQuestion',
 ]);

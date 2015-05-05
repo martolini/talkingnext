@@ -4,6 +4,7 @@ var IncomingQuestionStore = require('./IncomingQuestionStore');
 var FavoriteQuestionStore = require('./FavoriteQuestionStore');
 var AnsweredQuestionStore = require('./AnsweredQuestionStore');
 var QuestionUtils = require('../utils/QuestionUtils');
+var CurrentQuestionStore = require('../stores/CurrentQuestionStore');
 
 module.exports = Reflux.createStore({
 	listenables: [QuestionActions],
@@ -26,6 +27,9 @@ module.exports = Reflux.createStore({
 					favoritedQuestions.push(question);
 				else
 					incomingQuestions.push(question);
+				if (question.currentQuestion) {
+					CurrentQuestionStore.setInitial(question);
+				}
 			});
 			self.questions = self.questions.concat(answeredQuestions, favoritedQuestions, incomingQuestions);
 			QuestionActions.initialIncomingQuestions(incomingQuestions);

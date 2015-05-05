@@ -1,15 +1,27 @@
 var React = require('react');
+var Reflux = require('reflux');
 var QuestionActions = require('../actions/QuestionActions');
+var CurrentQuestionStore = require('../stores/CurrentQuestionStore');
 
 var QuestionItem = React.createClass({
+	mixins: [Reflux.connect(CurrentQuestionStore, "currentQuestion")],
+
+	getInitialState: function() {
+		return {
+			currentQuestion: CurrentQuestionStore.currentQuestion
+		}
+	},
 
 	_onClick: function(e) {
 		QuestionActions.unAnswerQuestion(this.props.question);
 	},
 
 	render: function() {
+		var className = "question-list-item list-group-item";
+		if (this.state.currentQuestion == this.props.question.id)
+			className += ' current';
 		return (
-			<li className="question-list-item list-group-item">
+			<li className={ className }>
 				<div className="row">
 					<div className="col-xs-2 col-sm-1">
 						<img src={this.props.question.avatar} className="img-rounded img-responsive" />

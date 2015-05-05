@@ -12,6 +12,7 @@ module.exports = {
 		questionChannel.bind('new_question', this.onNewQuestion);
 		questionChannel.bind('new_vote', this.onNewVote);
 		questionChannel.bind('deleted_vote', this.onDeleteVote);
+		questionChannel.bind('question_changed', this.onCurrentQuestion);
 	},
 
 	onNewQuestion: function(rawQuestion) {
@@ -25,5 +26,8 @@ module.exports = {
 
 	onDeleteVote: function(vote) {
 		QuestionActions.deleteVote(vote);
-	}
+	},
+
+	onCurrentQuestion: function(question) {
+	},
 }

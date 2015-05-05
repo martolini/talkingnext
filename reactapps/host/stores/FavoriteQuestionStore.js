@@ -19,9 +19,11 @@ module.exports = Reflux.createStore({
 
 	onAnswerQuestion: function(question) {
 		var index = this.questions.indexOf(question);
-		this.questions.splice(index, 1);
-		this.triggerSortedQuestions();
-		$.post('/ajax/answer_question/', {'question_id': question.id});
+		if (index > -1) {
+			this.questions.splice(index, 1);
+			this.triggerSortedQuestions();
+			$.post('/ajax/answer_question/', {'question_id': question.id});
+		}
 	},
 
 	onUnAnswerQuestion: function(question) {

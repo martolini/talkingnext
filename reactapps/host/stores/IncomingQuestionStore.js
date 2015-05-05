@@ -19,8 +19,19 @@ module.exports = Reflux.createStore({
 
 	onFavoriteQuestion: function(question) {
 		var index = this.questions.indexOf(question);
-		this.questions.splice(index, 1);
-		this.triggerSortedQuestions();
-		$.post('/ajax/favorite_question/', {'question_id': question.id});
+		if (index > -1) {
+			this.questions.splice(index, 1);
+			this.triggerSortedQuestions();
+			$.post('/ajax/favorite_question/', {'question_id': question.id});
+		}
+	},
+
+	onAnswerQuestion: function(question) {
+		var index = this.questions.indexOf(question);
+		if (index > -1) {
+			this.questions.splice(index, 1);
+			this.triggerSortedQuestions();
+			$.post('/ajax/answer_question/', {'question_id': question.id});			
+		}
 	},
 })

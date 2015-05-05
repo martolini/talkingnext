@@ -18,6 +18,7 @@ module.exports = Reflux.createStore({
 	},
 
 	onUnAnswerQuestion: function(question) {
+		console.log("WHAT");
 		var index = this.questions.indexOf(question);
 		this.questions.splice(index, 1);
 		this.triggerSortedQuestions();
