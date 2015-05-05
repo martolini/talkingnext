@@ -13,7 +13,6 @@ var Page = React.createClass({
 	render: function() {
 		return (
 			<div className="row">
-				<Header />
 				<div className="col-xs-6">
 					<div className="row">
 						<IncomingQuestionPanel />
