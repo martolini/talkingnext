@@ -14,14 +14,14 @@ var QuestionItem = React.createClass({
 					<div className="col-xs-2 col-sm-1">
 						<img src={this.props.question.avatar} className="img-rounded img-responsive" />
 					</div>
-					<div className="col-xs-9 col-sm-10 question-body-cell">
+					<div className="col-xs-8 col-sm-9 question-body-cell">
 						<div>
 							<a href={"http://twitter.com/" + this.props.question.author} target="_blank">@{ this.props.question.author}</a>
 						</div>
 						<div className="question-body">{ this.props.question.text }</div>
 					</div>
-					<div className="col-xs-1">
-						<div className="fa fa-3x fa-check" onClick={this._onClick} ></div>
+					<div className="col-xs-2">
+						<div className="fa fa-2x fa-check" onClick={this._onClick} >{ this.props.question.votesCount }</div>
 					</div>
 				</div>
 			</li>

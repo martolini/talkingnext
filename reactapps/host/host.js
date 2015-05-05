@@ -4,6 +4,7 @@ var FavoriteQuestionPanel = require('./components/FavoriteQuestionPanel');
 var AnsweredQuestionPanel = require('./components/AnsweredQuestionPanel');
 var QuestionStore = require('./stores/QuestionStore');
 var PusherHandler = require('./handlers/PusherHandler');
+var Header = require('./components/Header');
 
 var Page = React.createClass({
 	componentDidMount: function() {
@@ -12,6 +13,7 @@ var Page = React.createClass({
 	render: function() {
 		return (
 			<div className="row">
+				<Header />
 				<div className="col-xs-6">
 					<div className="row">
 						<IncomingQuestionPanel />

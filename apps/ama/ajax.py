@@ -69,6 +69,6 @@ def favorite_question_view(request):
 def answer_question_view(request):
 	question_id = request.POST.get('question_id')
 	question = Question.objects.get(id=question_id)
-	question.answered = True
+	question.answered = not question.answered
 	question.save()
 	return {'success': True}
