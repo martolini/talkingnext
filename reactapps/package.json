@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "repository": "https://github.com/martolini/reactchat",
-  "main": "src/ama.js",
   "dependencies": {
     "flux": "^2.0.0",
     "keymirror": "~0.1.0",
@@ -21,9 +20,9 @@
   },
   "scripts": {
     "start_ama": "watchify -o ../static/js/ama.js -v -d .",
-    "build_ama": "browserify . | uglifyjs -cm > ../static/js/ama.min.js",
-    "start_host": "watchify -o ../static/js/host.js -v -d .",
-    "build_host": "browserify . | uglifyjs -cm > ../static/js/host.min.js",
+    "build_ama": "browserify ./ama/ama.js | uglifyjs -cm > ../static/js/ama.min.js",
+    "start_host": "watchify ./host/host.js -t reactify -o ../static/js/host.js -v -d",
+    "build_host": "browserify ./host/host.js | uglifyjs -cm > ../static/js/host.min.js",
     "test": "jest"
   },
   "author": "MJ",

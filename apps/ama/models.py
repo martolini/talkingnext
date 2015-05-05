@@ -45,6 +45,7 @@ class Question(models.Model):
 	created_at = models.DateTimeField(auto_now_add=True)
 	answered = models.BooleanField(default=False)
 	current_question = models.BooleanField(default=False)
+	favorited = models.BooleanField(default=False)
 
 	@property
 	def votes_count(self):
@@ -64,6 +65,7 @@ class Question(models.Model):
 			created_at=time.mktime(self.created_at.timetuple()),
 			answered=self.answered,
 			current_question=self.current_question,
+			favorited=self.favorited,
 			)
 
 	def __unicode__(self):

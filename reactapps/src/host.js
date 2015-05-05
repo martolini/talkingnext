@@ -1,19 +1,18 @@
 var React = require('react');
-var QuestionList = require('./components/QuestionList');
-var QuestionInput = require('./components/QuestionInput');
+var IncomingQuestionPanel = require('./components/IncomingQuestionPanel');
+var QuestionActions = require('./actions/QuestionActions');
 
 var Page = React.createClass({
 	render: function() {
 		return (
-			<div>
-				<QuestionInput />
-				<QuestionList />
+			<div className="row">
+				<IncomingQuestionPanel />
+				<h1>Hei</h1>
 			</div>
-		);
+		)
 	}
-
 });
 
 React.render(
-	<Page />, document.getElementById('questions-column')
+	<Page />, document.getElementById('content')
 );

@@ -52,9 +52,9 @@ var QuestionItem = React.createClass({
 			voteClass = ' green';
 		if (this.props.question.answered)
 			liClass = " faded";
-		var answered = <span />;
+		var currentQuestion = <span />;
 		if (this.props.question.currentQuestion) {
-			answered = (
+			currentQuestion = (
 				<div className="row">
 					<div className="col-xs-12" style={{paddingLeft: '0'}}>
 						<p className="text-success">
@@ -81,7 +81,7 @@ var QuestionItem = React.createClass({
 
 		return (
 			<li className={"question-list-item" + liClass}>
-				{ answered }
+				{ currentQuestion }
 				<div className="row">
 					<div className="col-xs-2 col-sm-1 question-img-cell">
 						<img src={this.props.question.avatar} className="img-rounded img-responsive" />
