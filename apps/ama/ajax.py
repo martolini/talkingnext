@@ -56,3 +56,33 @@ def unvote_question_view(request):
 def talkingnext_view(request):
 	Suggestion.create_or_increment(request.POST.get('host'))
 	return {'success': True}
+
+@ajax
+def favorite_question_view(request):
+	question_id = request.POST.get('question_id')
+	question = Question.objects.get(id=question_id)
+	question.favorited = True
+	question.save()
+	return {'success': True}
+
+@ajax
+def answer_question_view(request):
+	question_id = request.POST.get('question_id')
+	question = Question.objects.get(id=question_id)
+	question.answered = not question.answered
+	question.save()
+	return {'success': True}
+
+@ajax
+def current_question_view(request):
+	question_id = request.POST.get('question_id')
+	try:
+		for q in Question.objects.filter(current_question=True):
+			q.current_question = False
+			q.save()
+	except Question.DoesNotExist:
+		pass
+	q = Question.objects.get(id=question_id)
+	q.current_question = True
+	q.save()
+	return {'success': True}
