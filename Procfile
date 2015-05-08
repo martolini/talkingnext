@@ -1,1 +1,1 @@
-web: newrelic-admin run-program waitress-serve --port=$PORT talkingnext.wsgi:application
+web: waitress-serve --port=$PORT talkingnext.wsgi:application
